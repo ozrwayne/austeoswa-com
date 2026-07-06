@@ -93,6 +93,8 @@ const routes = [
     description: "浏览澳大利亚潮汕青年会最新新闻、活动回顾、社区动态与对外交流资讯。",
     priority: "0.5",
     changefreq: "weekly",
+    canonicalPath: "/news",
+    excludeFromSitemap: true,
   },
   {
     path: "/new/1",
@@ -100,6 +102,8 @@ const routes = [
     description: "澳大利亚潮汕同乡会与澳洲潮汕青年会代表团赴悉尼参加中秋晚宴暨昆士兰分会授牌仪式，深化两地潮团交流合作。",
     priority: "0.5",
     changefreq: "yearly",
+    canonicalPath: "/news/1",
+    excludeFromSitemap: true,
   },
   {
     path: "/new/2",
@@ -107,6 +111,8 @@ const routes = [
     description: "澳洲潮汕同乡会与青年会代表团参访悉尼潮州同乡会馆，交流会务经验，推动青年互动、文化传承与社团协作。",
     priority: "0.5",
     changefreq: "yearly",
+    canonicalPath: "/news/2",
+    excludeFromSitemap: true,
   },
   {
     path: "/new/letter-to-grandma-premiere",
@@ -114,6 +120,8 @@ const routes = [
     description: "澳大利亚潮汕青年会联合 CMC 华人影业在布里斯班举办《给阿嬷的情书》昆士兰州首映礼，让潮汕方言电影连接海外家庭记忆。",
     priority: "0.5",
     changefreq: "yearly",
+    canonicalPath: "/news/3",
+    excludeFromSitemap: true,
   },
   {
     path: "/culture",
@@ -311,6 +319,31 @@ const featuredRoleItems = [
 ];
 
 const routeJsonLd = {
+  "/news": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "新闻活动",
+      url: `${siteUrl}/news`,
+      description: "浏览澳大利亚潮汕青年会最新新闻、活动回顾、社区动态与对外交流资讯。",
+      inLanguage: "zh-CN",
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "澳大利亚潮汕青年会新闻文章列表",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, url: `${siteUrl}/news/1`, name: "乡音相连，共筑未来" },
+        { "@type": "ListItem", position: 2, url: `${siteUrl}/news/2`, name: "参观澳洲潮州同乡会馆" },
+        { "@type": "ListItem", position: 3, url: `${siteUrl}/news/3`, name: "给阿嬷的情书昆士兰州首映礼" },
+        { "@type": "ListItem", position: 4, url: `${siteUrl}/news/4`, name: "澳大利亚潮汕青年会拜访布里斯班总领馆" },
+        { "@type": "ListItem", position: 5, url: `${siteUrl}/news/5`, name: "《给阿嬷的情书》澳大利亚昆士兰州首映礼圆满举行" },
+        { "@type": "ListItem", position: 6, url: `${siteUrl}/news/6`, name: "「益企AI+」AI重塑企业增长实战沙龙即将开启" },
+        { "@type": "ListItem", position: 7, url: `${siteUrl}/news/7`, name: "澳大利亚潮汕青年会携手 Stanley Team | 企业 AI 转型线下课深圳圆满收官" },
+      ],
+    },
+  ],
   "/about": [
     {
       "@context": "https://schema.org",
@@ -382,22 +415,154 @@ const routeJsonLd = {
       },
     },
   ],
+  "/culture": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "潮汕文化",
+      url: `${siteUrl}/culture`,
+      description: "认识潮汕话、节庆民俗、工夫茶、潮汕饮食与家庭记忆，持续整理适合澳大利亚社区传播的潮汕文化内容。",
+      inLanguage: "zh-CN",
+      about: ["潮汕话", "工夫茶", "潮汕饮食", "节庆民俗", "潮汕文化传承"],
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
+  "/business": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "商务与资源",
+      url: `${siteUrl}/business`,
+      description: "了解澳大利亚潮汕青年会的合作机构、友好社团、企业资源与活动赞助入口，连接公益、文化与商务合作机会。",
+      inLanguage: "zh-CN",
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
   "/resources": [
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "资源中心",
       url: `${siteUrl}/resources`,
+      description: "查阅澳大利亚潮汕青年会章程、公开资料、活动文章归档与资源下载，获取会务与合作相关信息。",
       inLanguage: "zh-CN",
       about: ["青年会章程", "活动文章", "合作资料", "待确认资料"],
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
+  "/news/1": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "乡音相连，共筑未来",
+      description: "澳大利亚潮汕同乡会与澳洲潮汕青年会代表团赴悉尼参加中秋晚宴暨昆士兰分会授牌仪式，深化两地潮团交流合作。",
+      url: `${siteUrl}/news/1`,
+      inLanguage: "zh-CN",
+      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
+  "/news/2": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "参观澳洲潮州同乡会馆",
+      description: "澳洲潮汕同乡会与青年会代表团参访悉尼潮州同乡会馆，交流会务经验，推动青年互动、文化传承与社团协作。",
+      url: `${siteUrl}/news/2`,
+      inLanguage: "zh-CN",
+      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
+  "/news/3": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "给阿嬷的情书昆士兰州首映礼",
+      description: "澳大利亚潮汕青年会联合 CMC 华人影业在布里斯班举办《给阿嬷的情书》昆士兰州首映礼，让潮汕方言电影连接海外家庭记忆。",
+      url: `${siteUrl}/news/3`,
+      datePublished: "2026-06-16",
+      inLanguage: "zh-CN",
+      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
+  "/news/4": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "澳大利亚潮汕青年会拜访布里斯班总领馆",
+      description: "澳大利亚潮汕青年会代表拜访中国驻布里斯班总领馆，就青年社群服务、文化传承与中澳友好交流进行沟通。",
+      url: `${siteUrl}/news/4`,
+      datePublished: "2026-06-23",
+      inLanguage: "zh-CN",
+      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
+  "/news/5": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "《给阿嬷的情书》澳大利亚昆士兰州首映礼圆满举行",
+      description: "《给阿嬷的情书》布里斯班首映礼圆满举行，澳大利亚潮汕青年会与 CMC Pictures 邀请观众在大银幕重温潮汕侨批与家庭记忆。",
+      url: `${siteUrl}/news/5`,
+      datePublished: "2026-06-25",
+      inLanguage: "zh-CN",
+      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
+  "/news/6": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "「益企AI+」AI重塑企业增长实战沙龙即将开启",
+      description: "澳大利亚潮汕青年会作为协办单位，推介2026年7月3日深圳福田「益企AI+」实战沙龙，Stanley Team 主题分享，30席精品闭门场。",
+      url: `${siteUrl}/news/6`,
+      datePublished: "2026-06-28",
+      inLanguage: "zh-CN",
+      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
+  "/news/7": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "澳大利亚潮汕青年会携手 Stanley Team | 企业 AI 转型线下课深圳圆满收官",
+      description: "澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课在深圳圆满落幕。执行会长王罗湳全程统筹并发表「中国 AI 生态全景」与「企业 AI 转型」专题宣讲。",
+      url: `${siteUrl}/news/7`,
+      datePublished: "2026-07-05",
+      inLanguage: "zh-CN",
+      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
     },
   ],
 };
 
+function buildNoscript(route) {
+  const title = route.path === "/"
+    ? siteName
+    : `${route.title} | ${siteName}`;
+  const inner =
+    `<h1>${escapeHtml(title)}</h1>` +
+    `<p>${escapeHtml(route.description)}</p>` +
+    (route.path !== "/"
+      ? `<p><a href="${siteUrl}/">← 返回首页</a></p>`
+      : `<p>联系邮箱：<a href="mailto:${publicEmail}">${publicEmail}</a></p>`);
+  return (
+    `<main style="max-width:760px;margin:3rem auto;padding:1.5rem;` +
+    `font-family:Arial,sans-serif;line-height:1.7;">` +
+    inner +
+    `</main>`
+  );
+}
+
 function setMeta(html, route) {
   const title = route.path === "/" ? `${siteName} | ATYA` : `${route.title} | ${siteName}`;
   const description = route.description;
-  const url = `${siteUrl}${route.path === "/" ? "/" : route.path}`;
+  const url = `${siteUrl}${route.canonicalPath ?? (route.path === "/" ? "/" : route.path)}`;
   const jsonLd = [breadcrumb(route), ...(routeJsonLd[route.path] || [])];
 
   return html
@@ -409,7 +574,8 @@ function setMeta(html, route) {
     .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:title" content="${escapeHtml(title)}" />`)
     .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${escapeHtml(description)}" />`)
     .replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/, `<link rel="canonical" href="${escapeHtml(url)}" />`)
-    .replace("</head>", `${jsonLd.map((item) => `    <script type="application/ld+json">${JSON.stringify(item)}</script>`).join("\n")}\n  </head>`);
+    .replace("</head>", `${jsonLd.map((item) => `    <script type="application/ld+json">${JSON.stringify(item)}</script>`).join("\n")}\n  </head>`)
+    .replace(/<noscript>[\s\S]*?<\/noscript>/, `<noscript>${buildNoscript(route)}</noscript>`);
 }
 
 function setNoIndex(html) {
@@ -435,7 +601,7 @@ for (const route of routes) {
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes.map((route) => `  <url>
+${routes.filter((route) => !route.excludeFromSitemap).map((route) => `  <url>
     <loc>${siteUrl}${route.path === "/" ? "/" : route.path}</loc>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
