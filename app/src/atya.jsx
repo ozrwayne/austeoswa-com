@@ -9,7 +9,7 @@ const site = {
   shortName: "ATYA",
   domain: "https://austeoswa.com",
   email: "info@austeoswa.com",
-  address: "Unit 10/23 Margaret St, Southport QLD 4215, Australia",
+  address: "172 Scarborough St, Southport QLD 4215",
   registrationNumber: "IA4881891",
   registrationAct: "澳大利亚联邦昆士兰州《1981年社团组织法》",
   registrationYear: "2025",
@@ -43,6 +43,7 @@ const routeTitles = {
   "/news/4": "活动文章",
   "/news/5": "活动文章",
   "/news/6": "活动文章",
+  "/news/7": "活动文章",
   "/culture": "潮汕文化",
   "/business": "商务与资源",
   "/resources": "资源中心",
@@ -158,6 +159,7 @@ const articleImages = {
   article4: "/assets/consulate-visit-20260623.webp",
   article5: "/assets/letter-to-grandma-premiere-qld.webp",
   article6: "/assets/ai-growth-salon-cover.webp",
+  article7: "/assets/stanley-ai-course-venue.webp",
 };
 
 const homeGrandmaImage = "/assets/letter-to-grandma-premiere.webp";
@@ -280,9 +282,20 @@ const articles = [
       "澳大利亚潮汕青年会作为协办单位，诚挚推介将于2026年7月3日在深圳举行的「益企AI+」实战沙龙。30席精品闭门场，手把手带你深入AI落地实践。",
     source: "青年会合作活动",
   },
+  {
+    id: "7",
+    category: "活动回顾",
+    date: "2026年5月26日",
+    image: articleImages.article7,
+    title: "澳大利亚潮汕青年会携手 Stanley Team | 企业 AI 转型线下课深圳圆满收官",
+    summary:
+      "澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课程在深圳圆满落幕。执行会长王罗湳全程参与统筹，并发表「中国 AI 生态全景」与「企业 AI 转型」专题宣讲。",
+    source: "青年会活动新闻",
+  },
 ];
 
 const newsItems = [
+  articles[6],
   articles[5],
   articles[4],
   articles[3],
@@ -291,7 +304,7 @@ const newsItems = [
   articles[1],
 ];
 
-const homeNewsList = newsItems.filter((item) => item.id !== articles[2].id);
+const homeNewsList = newsItems.filter((item) => item.id !== articles[2].id && item.id !== articles[6].id);
 
 const originalArticlePages = {
   "1": {
@@ -482,6 +495,40 @@ const originalArticlePages = {
       },
     ],
   },
+  "7": {
+    image: articleImages.article7,
+    imageAlt: "Stanley Team 企业 AI 转型线下课现场全景",
+    title: "澳大利亚潮汕青年会携手 Stanley Team | 企业 AI 转型线下课深圳圆满收官",
+    date: "2026年5月26日",
+    intro:
+      "近日，由 Stanley Team 主办、澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课程在深圳圆满落幕。两天一夜的高强度课程吸引了来自北京、上海、成都、澳大利亚、日本、美国、新加坡等地的企业创始人与行业从业者齐聚一堂，座无虚席，全程无人提前离席。",
+    sections: [
+      {
+        title: "执行会长王罗湳专题宣讲",
+        body:
+          "澳大利亚潮汕青年会执行会长王罗湳全程深度参与本次活动的整体统筹推进，并在课程中发表专题宣讲，系统梳理「中国 AI 生态全景」与「企业 AI 转型」两大核心议题，从宏观格局到落地路径，为与会者提供了清晰的认知框架与实操参考。",
+        image: "/assets/stanley-ai-course-roland.webp",
+        imageAlt: "澳大利亚潮汕青年会执行会长王罗湳在课程中发表专题宣讲",
+      },
+      {
+        title: "全链路参与支持",
+        body:
+          "本次活动中，青年会多名成员以多种身份深度参与其中——既有担任课程讲师、深入讲解 AI 落地实战的技术骨干，也有在幕后统筹全程的活动策划与执行团队，以及从踩点布置到现场收尾一手操持的志愿者们。正是这种从内容到执行的全链路介入，让这场活动得以高质量落地。",
+      },
+      {
+        title: "高响应度的办课方式",
+        body:
+          "课程内容不拘泥于预设框架。第一天结束后，团队根据学员当日反馈，当晚推翻原定课程，重新排课；讲师凌晨四点完成内容调整，七点出发前往会场。话题从 SEO、GEO 科普延伸至企业内部数据治理与多 Agent 编排实战案例，学员提出的问题，第二天课堂上即时回应。这种高响应度的办课方式，赢得了与会者的广泛认可。",
+        image: "/assets/stanley-ai-course-scenes.webp",
+        imageAlt: "Stanley Team 企业 AI 转型线下课现场讲课实录",
+      },
+      {
+        title: "助力 AI 转型的持续行动",
+        body:
+          "此次活动是澳大利亚潮汕青年会积极推动会员参与 AI 技术实践的缩影。随着 AI 加速渗透企业经营各环节，青年会将持续整合海内外资源，为潮汕籍创业者与从业者搭建高质量的交流与学习平台，助力会员在新一轮产业变革中率先形成竞争优势。",
+      },
+    ],
+  },
 };
 
 const homeSlides = [
@@ -492,6 +539,15 @@ const homeSlides = [
     titleLines: ["澳大利亚潮汕青年会"],
     text: "以现代非营利组织模式连接传统文化，用国际化视野服务在澳潮汕青年。我们在文化传承、青年成长与公益协作中，持续构建更有温度的青年社群生态。",
     image: "/assets/gold-coast-background.webp",
+  },
+  {
+    id: "stanley-ai",
+    type: "article",
+    eyebrow: "活动回顾",
+    titleLines: ["深圳企业 AI 转型", "线下课圆满收官"],
+    text: articles[6].summary,
+    image: articleImages.article7,
+    href: "/news/7",
   },
   {
     id: "grandma",
@@ -667,6 +723,7 @@ function App() {
         {path === "/news/4" && <OriginalArticlePage article={originalArticlePages["4"]} navigate={navigate} />}
         {path === "/news/5" && <OriginalArticlePage article={originalArticlePages["5"]} navigate={navigate} />}
         {path === "/news/6" && <OriginalArticlePage article={originalArticlePages["6"]} navigate={navigate} />}
+        {path === "/news/7" && <OriginalArticlePage article={originalArticlePages["7"]} navigate={navigate} />}
         {path === "/culture" && <CulturePage />}
         {path === "/business" && <BusinessPage navigate={navigate} />}
         {path === "/resources" && <ResourcesPage navigate={navigate} />}

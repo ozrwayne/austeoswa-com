@@ -7,7 +7,7 @@ const siteUrl = "https://austeoswa.com";
 const registrationNumber = "IA4881891";
 const legalDescription = `${siteName}是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 ${registrationNumber}，致力于弘扬潮汕文化、凝聚在澳潮汕青年、促进公益参与与中澳交流。`;
 const publicEmail = "info@austeoswa.com";
-const publicAddress = "Unit 10/23 Margaret St, Southport QLD 4215, Australia";
+const publicAddress = "172 Scarborough St, Southport QLD 4215";
 
 const routes = [
   {
@@ -79,6 +79,13 @@ const routes = [
     description: "澳大利亚潮汕青年会作为协办单位，推介2026年7月3日深圳福田「益企AI+」实战沙龙，Stanley Team 主题分享，30席精品闭门场。",
     priority: "0.7",
     changefreq: "monthly",
+  },
+  {
+    path: "/news/7",
+    title: "澳大利亚潮汕青年会携手 Stanley Team | 企业 AI 转型线下课深圳圆满收官",
+    description: "澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课在深圳圆满落幕。执行会长王罗湳全程统筹并发表「中国 AI 生态全景」与「企业 AI 转型」专题宣讲。",
+    priority: "0.7",
+    changefreq: "yearly",
   },
   {
     path: "/new",
@@ -179,6 +186,9 @@ const publicWhitelist = [
   "assets/stanley-speaker-hoody.jpg",
   "assets/stanley-speaker-achuan.jpg",
   "assets/stanley-speaker-jinchen.jpg",
+  "assets/stanley-ai-course-venue.webp",
+  "assets/stanley-ai-course-roland.webp",
+  "assets/stanley-ai-course-scenes.webp",
   "downloads/atya-constitution.docx",
 ];
 
