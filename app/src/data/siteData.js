@@ -6,7 +6,7 @@ export const site = {
   atyaEnglish: "Australia Teochew Youth Association",
   domain: "https://austeoswa.com",
   email: "info@austeoswa.com",
-  address: "Queensland, Australia",
+  address: "172 Scarborough St, Southport QLD 4215",
   tagline: "联络乡谊、互助互爱、传承文化、回馈社会",
   description:
     "澳大利亚潮汕同乡会暨潮汕青年会官方门户，连接在澳潮汕乡亲与青年，传承潮汕文化，推动社区公益、文化交流、青年发展与经贸合作。",
@@ -109,6 +109,14 @@ export const activities = [
 export const contactTopics = ["入会咨询", "活动合作", "媒体与社群合作", "青年会项目", "素材或会务对接"];
 
 export const newsArticles = [
+  {
+    category: "活动回顾",
+    title: "青年会协办"益企AI+"实战沙龙，携手深圳共探AI企业增长新路径",
+    date: "2026-07-07",
+    image: "/assets/yi-qi-ai-salon-cover.webp",
+    summary:
+      "7月3日，澳大利亚潮汕青年会协办"益企AI+"AI重塑企业增长实战沙龙，执行会长王罗湳与多位企业高管深入交流，共探AI落地路径与两地产业合作机遇。",
+  },
   {
     category: "活动资讯",
     title: "《给阿嬷的情书》昆士兰州首映礼将于6月24日在布里斯班举行",
