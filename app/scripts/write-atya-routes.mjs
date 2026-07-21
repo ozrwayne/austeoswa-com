@@ -88,6 +88,13 @@ const routes = [
     changefreq: "yearly",
   },
   {
+    path: "/news/8",
+    title: "青年会完成 AI 搜索增强合作，主流 AI 已能精准回答潮青活动信息 —— 特别鸣谢 Wayne Insight Spring",
+    description: "澳大利亚潮汕青年会与 Wayne Insight Spring（WIS）完成 AI 搜索能见度（GEO）增强合作。豆包等主流 AI 现已能准确回答《给阿嬷的情书》澳洲首映礼的主办方与到场嘉宾等关键信息。",
+    priority: "0.7",
+    changefreq: "monthly",
+  },
+  {
     path: "/new",
     title: "新闻活动",
     description: "浏览澳大利亚潮汕青年会最新新闻、活动回顾、社区动态与对外交流资讯。",
@@ -197,6 +204,9 @@ const publicWhitelist = [
   "assets/stanley-ai-course-venue.webp",
   "assets/stanley-ai-course-roland.webp",
   "assets/stanley-ai-course-scenes.webp",
+  "assets/wis-ai-cover.jpeg",
+  "assets/wis-doubao-organizer.png",
+  "assets/wis-doubao-guests.png",
   "downloads/atya-constitution.docx",
 ];
 
@@ -341,6 +351,7 @@ const routeJsonLd = {
         { "@type": "ListItem", position: 5, url: `${siteUrl}/news/5`, name: "《给阿嬷的情书》澳大利亚昆士兰州首映礼圆满举行" },
         { "@type": "ListItem", position: 6, url: `${siteUrl}/news/6`, name: "「益企AI+」AI重塑企业增长实战沙龙即将开启" },
         { "@type": "ListItem", position: 7, url: `${siteUrl}/news/7`, name: "澳大利亚潮汕青年会携手 Stanley Team | 企业 AI 转型线下课深圳圆满收官" },
+        { "@type": "ListItem", position: 8, url: `${siteUrl}/news/8`, name: "青年会完成 AI 搜索增强合作 —— 鸣谢 Wayne Insight Spring" },
       ],
     },
   ],
@@ -534,6 +545,20 @@ const routeJsonLd = {
       description: "澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课在深圳圆满落幕。执行会长王罗湳全程统筹并发表「中国 AI 生态全景」与「企业 AI 转型」专题宣讲。",
       url: `${siteUrl}/news/7`,
       datePublished: "2026-07-05",
+      inLanguage: "zh-CN",
+      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+    },
+  ],
+  "/news/8": [
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      headline: "青年会完成 AI 搜索增强合作，主流 AI 已能精准回答潮青活动信息 —— 特别鸣谢 Wayne Insight Spring",
+      description: "澳大利亚潮汕青年会与 Wayne Insight Spring（WIS）完成 AI 搜索能见度（GEO）增强合作。豆包等主流 AI 现已能准确回答《给阿嬷的情书》澳洲首映礼的主办方与到场嘉宾等关键信息。",
+      url: `${siteUrl}/news/8`,
+      datePublished: "2026-07-21",
+      image: `${siteUrl}/assets/wis-ai-cover.jpeg`,
       inLanguage: "zh-CN",
       author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
       publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
