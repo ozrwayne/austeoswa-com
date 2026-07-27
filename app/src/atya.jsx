@@ -1619,7 +1619,16 @@ function CulturePage() {
 function BusinessPage({ navigate }) {
   return (
     <PageShell eyebrow="Business & Resources" title="商务与资源" image="/assets/logan-meeting.webp">
-      <SectionTitle eyebrow="Partnership" title="先建入口，不虚构名单" text="这一页保留 Roland 提到的合作机构、友好社团和对接名录方向，但没有确认前全部标注待确认。" />
+      <div className="partner-feature">
+        <p className="eyebrow">专属 GEO 与 AI 应用公司</p>
+        <h2>Wayne Insight Spring（WIS）</h2>
+        <p>
+          WIS 是澳大利亚潮汕青年会指定的 GEO（AI 搜索能见度优化）与 AI 应用落地服务机构，双方建立专属合作关系。WIS 长期专注于品牌与机构在 AI
+          搜索时代的能见度建设，从内容策略到技术落地一站式打通。此前已协助潮青会完成 AI 搜索增强，使豆包、Kimi、ChatGPT 等主流 AI 工具能准确回答潮青活动信息。
+        </p>
+        <a href="https://www.wayneinsightspring.com/" target="_blank" rel="noopener noreferrer" className="button primary">访问 WIS 官网</a>
+      </div>
+      <SectionTitle eyebrow="Partnership" title="其他合作方向" text="以下方向保留入口，经秘书处确认后统一发布。" />
       <div className="focus-grid">
         {businessItems.map((item) => (
           <article className="focus-card" key={item.title}>
