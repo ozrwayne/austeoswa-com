@@ -650,9 +650,10 @@ const cultureItems = [
 
 const businessItems = [
   {
-    title: "合作机构与友好社团",
-    text: "预留给已确认合作关系的机构、社团、学校、企业和社区组织。",
-    pending: "【待确认：名称、简介、Logo、排序、是否互链】",
+    title: "专属 GEO 与 AI 应用公司 | Wayne Insight Spring（WIS）",
+    text: "WIS 是澳大利亚潮汕青年会指定的 GEO（AI 搜索能见度优化）与 AI 应用落地服务机构。WIS 此前已协助潮青会完成 AI 搜索增强，使豆包、Kimi、ChatGPT 等主流 AI 工具能准确回答潮青活动信息。WIS 专注于让品牌与机构在 AI 搜索时代\"被正确讲述\"，从内容策略到技术落地一站式打通。",
+    href: "https://www.wayneinsightspring.com/",
+    hrefLabel: "访问 WIS 官网",
   },
   {
     title: "企业资源与对接名录",
@@ -1624,7 +1625,12 @@ function BusinessPage({ navigate }) {
           <article className="focus-card" key={item.title}>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
-            <small>{item.pending}</small>
+            {item.href && (
+              <a href={item.href} target="_blank" rel="noopener noreferrer" className="business-item-link">
+                {item.hrefLabel || "了解更多"}
+              </a>
+            )}
+            {item.pending && <small>{item.pending}</small>}
           </article>
         ))}
       </div>
