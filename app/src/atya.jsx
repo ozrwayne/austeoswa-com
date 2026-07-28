@@ -1628,13 +1628,11 @@ function BusinessPage({ navigate }) {
         </p>
         <a href="https://www.wayneinsightspring.com/" target="_blank" rel="noopener noreferrer" className="button primary">访问 WIS 官网</a>
       </div>
-      <SectionTitle eyebrow="Partnership" title="其他合作方向" text="以下方向保留入口，经秘书处确认后统一发布。" />
+      <SectionTitle eyebrow="Partnership" title="其他合作方向" />
       <div className="focus-grid">
         {businessItems.map((item) => (
           <article className="focus-card" key={item.title}>
             <h3>{item.title}</h3>
-            <p>{item.text}</p>
-            <small>{item.pending}</small>
           </article>
         ))}
       </div>
