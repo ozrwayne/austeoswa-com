@@ -172,6 +172,7 @@ const publicWhitelist = [
   "manifest.webmanifest",
   "robots.txt",
   "assets/atya-logo.png",
+  "assets/atya-icon-round.png",
   "assets/about-founding-photo.webp",
   "assets/atya-wordmark.webp",
   "assets/ceremony-group.webp",
