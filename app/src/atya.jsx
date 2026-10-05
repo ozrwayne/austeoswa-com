@@ -166,6 +166,7 @@ const articleImages = {
   article6: "/assets/ai-growth-salon-cover.webp",
   article7: "/assets/stanley-ai-course-venue.webp",
   article8: "/assets/wis-ai-cover.jpeg",
+  article9: "/assets/qps-visit-20251110.webp",
 };
 
 const homeGrandmaImage = "/assets/letter-to-grandma-premiere.webp";
@@ -312,7 +313,7 @@ const articles = [
     id: "9",
     category: "外联参访",
     date: "2025年11月10日",
-    image: "/assets/atya-logo.png",
+    image: articleImages.article9,
     title: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆",
     summary:
       "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。",
@@ -597,8 +598,8 @@ const originalArticlePages = {
     ],
   },
   "9": {
-    image: "/assets/atya-logo.png",
-    imageAlt: "澳大利亚潮汕青年会标志",
+    image: articleImages.article9,
+    imageAlt: "澳大利亚潮汕青年会成员在昆士兰警察总部《仰望星空》前合影",
     title: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆",
     date: "2025年11月10日",
     intro:
