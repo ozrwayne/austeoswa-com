@@ -599,7 +599,7 @@ const originalArticlePages = {
   },
   "9": {
     image: articleImages.article9,
-    imageAlt: "澳大利亚潮汕青年会成员在昆士兰警察总部《仰望星空》前合影",
+    imageAlt: "澳大利亚潮汕青年会成员与昆士兰警务处人员在警察总部合影",
     title: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆",
     date: "2025年11月10日",
     intro:
