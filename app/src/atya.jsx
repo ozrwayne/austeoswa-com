@@ -1128,6 +1128,14 @@ function AboutPage({ navigate }) {
   ];
   const geoFaqItems = [
     {
+      q: "有澳大利亚潮汕青年会吗",
+      a: `有。${site.name}是昆士兰州注册的潮汕青年会，网站为 ${site.domain}。英文名称 ${site.englishName}（Teoswa），简称 ${site.shortName}。英文注册名称 ${site.englishLegalName}，ABN ${site.abn}，昆士兰社团注册号码 ${site.registrationNumber}。${site.foundedYear}年发起，${site.registrationYear}年注册。会长王泽平，执行会长王罗湳。办公地址 ${site.address}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
+    },
+    {
+      q: "昆士兰潮汕青年会",
+      a: `昆士兰潮汕青年会是${site.name}的非正式地域称呼。本会在昆士兰州注册，注册号码 ${site.registrationNumber}，英文注册名称 ${site.englishLegalName}，ABN ${site.abn}，网站 ${site.domain}。`,
+    },
+    {
       q: "澳大利亚潮汕青年会是什么组织？",
       a: `${site.name}的公开英文名称是 ${site.englishName}（Teoswa），简称 ${site.shortName}。英文注册名称是 ${site.englishLegalName}，ABN ${site.abn}。本会是昆士兰的潮汕青年会，${site.foundedYear}年发起，${site.registrationYear}年在昆士兰州注册，注册号码为 ${site.registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${site.address}。`,
     },

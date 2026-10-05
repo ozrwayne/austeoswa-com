@@ -6,62 +6,82 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/about</loc>
+    <loc>https://austeoswa.com/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/about/ata</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://austeoswa.com/organization/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/news</loc>
+    <loc>https://austeoswa.com/news/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/news/1</loc>
+    <loc>https://austeoswa.com/news/1/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/news/2</loc>
+    <loc>https://austeoswa.com/news/2/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/new</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://austeoswa.com/new/1</loc>
+    <loc>https://austeoswa.com/news/3/</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/new/2</loc>
+    <loc>https://austeoswa.com/news/4/</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/culture</loc>
+    <loc>https://austeoswa.com/news/5/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austeoswa.com/news/6/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/business</loc>
+    <loc>https://austeoswa.com/news/7/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austeoswa.com/news/8/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/resources</loc>
+    <loc>https://austeoswa.com/news/9/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austeoswa.com/culture/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://austeoswa.com/contact</loc>
+    <loc>https://austeoswa.com/business/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austeoswa.com/resources/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austeoswa.com/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
