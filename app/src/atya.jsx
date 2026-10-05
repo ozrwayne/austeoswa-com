@@ -314,6 +314,7 @@ const articles = [
     category: "外联参访",
     date: "2025年11月10日",
     image: articleImages.article9,
+    coverPosition: "faces",
     title: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆",
     summary:
       "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。",
@@ -322,13 +323,13 @@ const articles = [
 ];
 
 const newsItems = [
-  articles[8],
   articles[7],
-  articles[6],
   articles[5],
   articles[4],
   articles[3],
   articles[2],
+  articles[6],
+  articles[8],
   articles[0],
   articles[1],
 ];
@@ -600,6 +601,7 @@ const originalArticlePages = {
   "9": {
     image: articleImages.article9,
     imageAlt: "澳大利亚潮汕青年会成员与昆士兰警务处人员在警察总部合影",
+    imagePosition: "faces",
     title: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆",
     date: "2025年11月10日",
     intro:
@@ -1538,7 +1540,7 @@ function NewsPage({ navigate }) {
             <article className="newsroom-card" key={item.id}>
               <button type="button" onClick={() => navigate(articleHref)} aria-label={`阅读${item.title}`}>
                 <div className="newsroom-card-image">
-                  <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+                  <img className={item.coverPosition === "faces" ? "is-faces" : ""} src={item.image} alt={item.title} loading="lazy" decoding="async" />
                 </div>
                 <div className="newsroom-card-body">
                   <time>{item.date}</time>
@@ -1613,7 +1615,7 @@ function OriginalArticlePage({ article, navigate }) {
         <img
           src={article.image}
           alt={article.imageAlt || article.title}
-          className={article.imagePosition === "top" ? "is-top" : ""}
+          className={article.imagePosition === "top" ? "is-top" : article.imagePosition === "faces" ? "is-faces" : ""}
         />
       </div>
       <div className="original-article-card">

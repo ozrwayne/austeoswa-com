@@ -636,6 +636,10 @@ h3 {
   object-position: top;
 }
 
+.original-article-hero img.is-faces {
+  object-position: center 18%;
+}
+
 .original-article-card {
   padding: clamp(1.75rem, 3vw, 2.5rem);
   border: 1px solid #dfe5eb;
@@ -1025,6 +1029,11 @@ h3 {
 
 .newsroom-card:first-child .newsroom-card-image img {
   object-position: top;
+}
+
+.newsroom-card-image img.is-faces,
+.newsroom-card:first-child .newsroom-card-image img.is-faces {
+  object-position: center 18%;
 }
 
 .newsroom-card:hover img {
