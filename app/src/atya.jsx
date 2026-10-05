@@ -17,7 +17,7 @@ const site = {
   organizationType: "澳大利亚联邦昆士兰州注册非营利组织",
   mission: "弘扬潮汕文脉、凝聚在澳潮青、架设中澳桥梁、赋能青年成长、热心公益慈善",
   description:
-    "澳大利亚潮汕青年会（Australia Teochew Youth Association，简称 ATYA）是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 IA4881891。现任会长王泽平，执行会长王罗湳。",
+    "澳大利亚潮汕青年会（Australia Teochew Youth Association，简称 ATYA）是昆士兰的潮汕青年会，注册号码 IA4881891。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。",
 };
 
 const navItems = [
@@ -588,9 +588,9 @@ const homeSlides = [
   {
     id: "intro",
     type: "intro",
-    eyebrow: "Australia Teochew Youth Association",
+    eyebrow: "Australia Teochew Youth Association (ATYA) · Queensland",
     titleLines: ["澳大利亚潮汕青年会"],
-    text: "以现代非营利组织模式连接传统文化，用国际化视野服务在澳潮汕青年。我们在文化传承、青年成长与公益协作中，持续构建更有温度的青年社群生态。",
+    text: "昆士兰的潮汕青年会。2019年由昆士兰潮汕青年发起，2025年在昆士兰州注册，注册号码 IA4881891。会长王泽平，执行会长王罗湳。",
     image: "/assets/gold-coast-background.webp",
   },
   {
@@ -752,7 +752,9 @@ function App() {
 
   useEffect(() => {
     const pageTitle = titleFor(path);
-    document.title = path === "/" ? `${site.name} | ${site.shortName}` : `${pageTitle} | ${site.name}`;
+    document.title = path === "/"
+      ? `${site.name}｜昆士兰 | ${site.englishName} (ATYA) · Queensland`
+      : `${pageTitle}｜${site.name}｜昆士兰`;
   }, [path]);
 
   function navigate(href) {
@@ -985,7 +987,7 @@ function HomePage({ navigate }) {
       <section className="container home-contact-section">
         <div className="home-cta">
           <h2>欢迎联系澳大利亚潮汕青年会</h2>
-          <p>{site.name}（{site.englishName}，简称 {site.shortName}）是昆士兰州注册非营利组织，注册号码 {site.registrationNumber}。现任会长王泽平，执行会长王罗湳。</p>
+          <p>{site.name}（{site.englishName}，简称 {site.shortName}）是昆士兰的潮汕青年会。{site.foundedYear}年发起，{site.registrationYear}年在昆士兰州注册，注册号码 {site.registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 {site.address}。</p>
           <p>欢迎新移民、创业者、专业人士与青年学生参与，携手构建更紧密、更国际化的潮汕青年社群连接。</p>
           <div>
             <button className="button light" type="button" onClick={() => navigate("/contact")}>加入青年会</button>
@@ -1079,7 +1081,7 @@ function AboutPage({ navigate }) {
   const geoFaqItems = [
     {
       q: "澳大利亚潮汕青年会是什么组织？",
-      a: `${site.name}的英文注册名称是 ${site.englishName}，简称 ${site.shortName}。本会是澳大利亚昆士兰州注册的非营利组织，注册号码为 ${site.registrationNumber}，官网为 ${site.domain}。现任会长王泽平，执行会长王罗湳。`,
+      a: `${site.name}的英文注册名称是 ${site.englishName}，简称 ${site.shortName}。本会是昆士兰的潮汕青年会，${site.foundedYear}年发起，${site.registrationYear}年在昆士兰州注册，注册号码为 ${site.registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${site.address}。`,
     },
     {
       q: "澳大利亚潮汕青年会的注册号码是什么？",
@@ -1102,7 +1104,7 @@ function AboutPage({ navigate }) {
         <h1>关于我们</h1>
         <div className="about-original-hero-grid">
           <div className="about-original-hero-copy">
-            <p>{site.name}成立于{site.foundedYear}年，由昆士兰州潮汕青年自愿发起，并于{site.registrationYear}年依照{site.registrationAct}注册为非营利组织，注册号码为 {site.registrationNumber}。</p>
+            <p>{site.name}成立于{site.foundedYear}年，由昆士兰州潮汕青年自愿发起，并于{site.registrationYear}年依照{site.registrationAct}注册为非营利组织，注册号码为 {site.registrationNumber}。本会是昆士兰的潮汕青年会，服务黄金海岸、布里斯班及昆士兰各地的潮汕青年。办公地址为 {site.address}。</p>
             <p>英文注册名称为 {site.englishName}，简称 {site.shortName}。现任会长为王泽平，执行会长为王罗湳。</p>
             <p>我们扎根于澳大利亚多元文化社会，既珍视潮汕人勤劳重教、团结互助的传统，也以开放心态拥抱本地规则与国际视野。</p>
             <p>截至2026年6月，青年会已有200余名会员，包括20多位理事。成员多为高学历青年和企业家，活跃于学术界、人工智能、科技、法律、医疗、金融、传媒、地产、贸易、艺术等领域。</p>
@@ -1274,7 +1276,7 @@ function OrganizationPage({ navigate }) {
         <p>Governance</p>
         <h1>组织架构</h1>
         <p className="organization-hero-copy">
-          <span>{site.name}（{site.englishName}，简称 {site.shortName}）是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 {site.registrationNumber}。现任会长王泽平，执行会长王罗湳。</span>
+          <span>{site.name}（{site.englishName}，简称 {site.shortName}）是昆士兰的潮汕青年会，注册号码 {site.registrationNumber}。现任会长王泽平，执行会长王罗湳。</span>
           <span className="organization-hero-copy-line">本页列示青年会理事会、秘书处与顾问等公开会务架构。</span>
         </p>
         <div className="profile-hero-actions">
@@ -1847,7 +1849,7 @@ function Footer({ navigate }) {
       <div className="site-footer-grid">
         <div>
           <button className="site-footer-title" type="button" onClick={() => navigate("/")}>澳大利亚潮汕青年会</button>
-          <p>澳大利亚潮汕青年会（{site.englishName}，简称 {site.shortName}）<br />昆士兰州注册非营利组织，注册号码 {site.registrationNumber}。</p>
+          <p>澳大利亚潮汕青年会（{site.englishName}，简称 {site.shortName}）<br />昆士兰的潮汕青年会。注册号码 {site.registrationNumber}。</p>
         </div>
         <nav className="site-footer-links" aria-label="常用链接">
           <span>常用链接</span>
