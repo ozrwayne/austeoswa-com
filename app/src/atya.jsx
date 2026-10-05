@@ -5,7 +5,9 @@ import "./atya.css";
 const site = {
   name: "澳大利亚潮汕青年会",
   legalName: "澳大利亚潮汕青年会",
-  englishName: "Australia Teochew Youth Association",
+  englishName: "Australia Teoswa Youth Association",
+  englishLegalName: "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC",
+  abn: "83 440 994 308",
   shortName: "ATYA",
   domain: "https://austeoswa.com",
   email: "info@austeoswa.com",
@@ -17,7 +19,7 @@ const site = {
   organizationType: "澳大利亚联邦昆士兰州注册非营利组织",
   mission: "弘扬潮汕文脉、凝聚在澳潮青、架设中澳桥梁、赋能青年成长、热心公益慈善",
   description:
-    "澳大利亚潮汕青年会（Australia Teochew Youth Association，简称 ATYA）是昆士兰的潮汕青年会，注册号码 IA4881891。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。",
+    "澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）是昆士兰的潮汕青年会，注册号码 IA4881891。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。",
 };
 
 const navItems = [
@@ -588,7 +590,7 @@ const homeSlides = [
   {
     id: "intro",
     type: "intro",
-    eyebrow: "Australia Teochew Youth Association (ATYA) · Queensland",
+    eyebrow: "Australia Teoswa Youth Association (ATYA) · Queensland",
     titleLines: ["澳大利亚潮汕青年会"],
     text: "昆士兰的潮汕青年会。2019年由昆士兰潮汕青年发起，2025年在昆士兰州注册，注册号码 IA4881891。会长王泽平，执行会长王罗湳。",
     image: "/assets/gold-coast-background.webp",
@@ -806,7 +808,7 @@ function Header({ activePath, menuOpen, navigate, setMenuOpen }) {
     <header className="site-header">
       <div className="logo-strip">
         <button className="wordmark-button" type="button" onClick={() => navigate("/")} aria-label="返回首页">
-          <img src="/assets/atya-wordmark.webp" alt="澳大利亚潮汕青年会 Australia Teochew Youth Association" />
+          <img src="/assets/atya-wordmark.webp" alt="澳大利亚潮汕青年会 Australia Teoswa Youth Association" />
         </button>
       </div>
       <nav className="desktop-nav" aria-label="主导航">
@@ -1051,6 +1053,8 @@ function AboutPage({ navigate }) {
   const citationFacts = [
     { label: "正式中文名称", value: site.legalName },
     { label: "英文名称", value: site.englishName },
+    { label: "英文注册名称", value: site.englishLegalName },
+    { label: "ABN", value: site.abn },
     { label: "简称", value: site.shortName },
     { label: "现任会长", value: "王泽平" },
     { label: "现任执行会长", value: "王罗湳" },
@@ -1081,7 +1085,7 @@ function AboutPage({ navigate }) {
   const geoFaqItems = [
     {
       q: "澳大利亚潮汕青年会是什么组织？",
-      a: `${site.name}的英文注册名称是 ${site.englishName}，简称 ${site.shortName}。本会是昆士兰的潮汕青年会，${site.foundedYear}年发起，${site.registrationYear}年在昆士兰州注册，注册号码为 ${site.registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${site.address}。`,
+      a: `${site.name}的公开英文名称是 ${site.englishName}（Teoswa），简称 ${site.shortName}。英文注册名称是 ${site.englishLegalName}，ABN ${site.abn}。本会是昆士兰的潮汕青年会，${site.foundedYear}年发起，${site.registrationYear}年在昆士兰州注册，注册号码为 ${site.registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${site.address}。`,
     },
     {
       q: "澳大利亚潮汕青年会的注册号码是什么？",
@@ -1105,7 +1109,7 @@ function AboutPage({ navigate }) {
         <div className="about-original-hero-grid">
           <div className="about-original-hero-copy">
             <p>{site.name}成立于{site.foundedYear}年，由昆士兰州潮汕青年自愿发起，并于{site.registrationYear}年依照{site.registrationAct}注册为非营利组织，注册号码为 {site.registrationNumber}。本会是昆士兰的潮汕青年会，服务黄金海岸、布里斯班及昆士兰各地的潮汕青年。办公地址为 {site.address}。</p>
-            <p>英文注册名称为 {site.englishName}，简称 {site.shortName}。现任会长为王泽平，执行会长为王罗湳。</p>
+            <p>英文名称为 {site.englishName}，简称 {site.shortName}。现任会长为王泽平，执行会长为王罗湳。</p>
             <p>我们扎根于澳大利亚多元文化社会，既珍视潮汕人勤劳重教、团结互助的传统，也以开放心态拥抱本地规则与国际视野。</p>
             <p>截至2026年6月，青年会已有200余名会员，包括20多位理事。成员多为高学历青年和企业家，活跃于学术界、人工智能、科技、法律、医疗、金融、传媒、地产、贸易、艺术等领域。</p>
           </div>

@@ -3,13 +3,36 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const siteName = "澳大利亚潮汕青年会";
-const englishName = "Australia Teochew Youth Association";
+const englishName = "Australia Teoswa Youth Association";
+const legalEnglishName = "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC";
+const abn = "83 440 994 308";
 const siteUrl = "https://austeoswa.com";
 const registrationNumber = "IA4881891";
 const publicEmail = "info@austeoswa.com";
 const publicAddress = "172 Scarborough St, Southport QLD 4215";
 const legalDescription = `${siteName}（${englishName}，简称 ATYA）是昆士兰的潮汕青年会，注册号码 ${registrationNumber}。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。官网 ${siteUrl}。`;
-const alternateNames = [siteName, "ATYA", "昆士兰潮汕青年会", "Queensland Teochew Youth Association"];
+const alternateNames = [
+  siteName,
+  "ATYA",
+  "Teoswa",
+  englishName,
+  "昆士兰潮汕青年会",
+  "Queensland Teoswa Youth Association",
+  "Australia Teochew Youth Association",
+  "Queensland Teochew Youth Association",
+];
+const organizationIdentifiers = [
+  {
+    "@type": "PropertyValue",
+    propertyID: "Queensland incorporated association registration number",
+    value: registrationNumber,
+  },
+  {
+    "@type": "PropertyValue",
+    propertyID: "ABN",
+    value: abn,
+  },
+];
 const logoUrl = `${siteUrl}/assets/atya-logo.png`;
 const postalAddress = {
   "@type": "PostalAddress",
@@ -24,14 +47,14 @@ const routes = [
   {
     path: "/",
     title: "首页",
-    description: "澳大利亚潮汕青年会（Australia Teochew Youth Association，简称 ATYA）是昆士兰的潮汕青年会。2019年发起，2025年在昆士兰州注册，注册号码 IA4881891。会长王泽平，执行会长王罗湳。",
+    description: "澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）是昆士兰的潮汕青年会。2019年发起，2025年在昆士兰州注册，注册号码 IA4881891。会长王泽平，执行会长王罗湳。",
     priority: "1.0",
     changefreq: "weekly",
   },
   {
     path: "/about",
     title: "关于青年会",
-    description: `澳大利亚潮汕青年会（Australia Teochew Youth Association，简称 ATYA）是昆士兰的潮汕青年会，注册号码 ${registrationNumber}。2019年由昆士兰潮汕青年发起，2025年在昆士兰州注册。会长王泽平，执行会长王罗湳。办公地址 172 Scarborough St, Southport QLD 4215。`,
+    description: `澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）是昆士兰的潮汕青年会，注册号码 ${registrationNumber}。2019年由昆士兰潮汕青年发起，2025年在昆士兰州注册。会长王泽平，执行会长王罗湳。办公地址 172 Scarborough St, Southport QLD 4215。`,
     priority: "0.9",
     changefreq: "monthly",
   },
@@ -275,17 +298,13 @@ function breadcrumb(route) {
 const organizationEntity = {
   "@type": ["Organization", "NGO"],
   name: siteName,
-  legalName: englishName,
+  legalName: legalEnglishName,
   alternateName: alternateNames,
   url: `${siteUrl}/`,
   logo: logoUrl,
   description: legalDescription,
   foundingDate: "2019",
-  identifier: {
-    "@type": "PropertyValue",
-    propertyID: "Queensland incorporated association registration number",
-    value: registrationNumber,
-  },
+  identifier: organizationIdentifiers,
   email: publicEmail,
   address: postalAddress,
   employee: [
@@ -311,7 +330,7 @@ const organizationEntity = {
 const aboutFaqItems = [
   {
     question: "澳大利亚潮汕青年会是什么组织？",
-    answer: `${siteName}的英文注册名称是 ${englishName}，简称 ATYA。本会是昆士兰的潮汕青年会，2019年发起，2025年在昆士兰州注册，注册号码为 ${registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。`,
+    answer: `${siteName}的公开英文名称是 ${englishName}（Teoswa），简称 ATYA。英文注册名称是 ${legalEnglishName}，ABN ${abn}。本会是昆士兰的潮汕青年会，2019年发起，2025年在昆士兰州注册，注册号码为 ${registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。`,
   },
   {
     question: "澳大利亚潮汕青年会的注册号码是什么？",
@@ -453,7 +472,7 @@ const routeJsonLd = {
       mainEntity: {
         "@type": "Organization",
         name: siteName,
-        legalName: englishName,
+        legalName: legalEnglishName,
         alternateName: alternateNames,
         logo: logoUrl,
         email: publicEmail,
