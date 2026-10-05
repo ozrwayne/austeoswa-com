@@ -198,7 +198,7 @@ const articles = [
   {
     id: "2",
     category: "外联参访",
-    date: "2025年9月25日",
+    date: "2025年9月24日",
     image: articleImages.article2,
     title: "澳洲潮汕同乡会青年会率代表团参观澳洲潮州同乡会馆",
     summary:
@@ -1483,7 +1483,6 @@ function NewsPage({ navigate }) {
       <div className="newsroom-grid">
         {newsItems.map((item) => {
           const articleHref = item.id === "3" ? "/new/letter-to-grandma-premiere" : `/news/${item.id}`;
-          const cardDate = item.id === "2" ? "2025年9月24日" : item.date;
           return (
             <article className="newsroom-card" key={item.id}>
               <button type="button" onClick={() => navigate(articleHref)} aria-label={`阅读${item.title}`}>
@@ -1491,7 +1490,7 @@ function NewsPage({ navigate }) {
                   <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
                 </div>
                 <div className="newsroom-card-body">
-                  <time>{cardDate}</time>
+                  <time>{item.date}</time>
                   <h3>{item.title}</h3>
                   <p>{item.summary}</p>
                   <span>阅读全文</span>
