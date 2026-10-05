@@ -48,6 +48,7 @@ const routeTitles = {
   "/news/6": "活动文章",
   "/news/7": "活动文章",
   "/news/8": "活动文章",
+  "/news/9": "活动文章",
   "/culture": "潮汕文化",
   "/business": "商务与资源",
   "/resources": "资源中心",
@@ -157,14 +158,15 @@ const organizationBoards = [
 ];
 
 const articleImages = {
-  article1: "https://tca-prod-public.oss-cn-shanghai.aliyuncs.com/new/new1-03.webp",
-  article2: "https://tca-prod-public.oss-cn-shanghai.aliyuncs.com/new/new1-15.webp",
+  article1: "/assets/ceremony-group.webp",
+  article2: "/assets/ceremony-speech.webp",
   article3: "/assets/letter-to-grandma-poster.webp",
   article4: "/assets/consulate-visit-20260623.webp",
   article5: "/assets/letter-to-grandma-premiere-qld.webp",
   article6: "/assets/ai-growth-salon-cover.webp",
   article7: "/assets/stanley-ai-course-venue.webp",
   article8: "/assets/wis-ai-cover.jpeg",
+  article9: "/assets/qps-visit-20251110.webp",
 };
 
 const homeGrandmaImage = "/assets/letter-to-grandma-premiere.webp";
@@ -282,7 +284,7 @@ const articles = [
     category: "活动预告",
     date: "2026年6月26日",
     image: articleImages.article6,
-    title: "活动预告 | 赋能中心 × Stanley Team「益企AI+」AI重塑企业增长实战沙龙即将开启",
+    title: "活动预告 | 赋能中心 × WAYNE INSIGHTSPRING CONSULTING「益企AI+」AI重塑企业增长实战沙龙即将开启",
     summary:
       "澳大利亚潮汕青年会作为协办单位，诚挚推介将于2026年7月3日在深圳举行的「益企AI+」实战沙龙。30席精品闭门场，手把手带你深入AI落地实践。",
     source: "青年会合作活动",
@@ -292,7 +294,7 @@ const articles = [
     category: "活动回顾",
     date: "2026年5月26日",
     image: articleImages.article7,
-    title: "澳大利亚潮汕青年会携手 Stanley Team | 企业 AI 转型线下课深圳圆满收官",
+    title: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 企业 AI 转型线下课深圳圆满收官",
     summary:
       "澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课程在深圳圆满落幕。执行会长王罗湳全程参与统筹，并发表「中国 AI 生态全景」与「企业 AI 转型」专题宣讲。",
     source: "青年会活动新闻",
@@ -307,9 +309,20 @@ const articles = [
       "澳大利亚潮汕青年会与 Wayne Insight Spring（WIS）完成一轮 AI 搜索能见度（GEO）增强合作。豆包等主流 AI 现已能准确回答《给阿嬷的情书》澳洲首映礼的主办方与到场嘉宾等关键信息。",
     source: "青年会公告",
   },
+  {
+    id: "9",
+    category: "外联参访",
+    date: "2025年11月10日",
+    image: articleImages.article9,
+    title: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆",
+    summary:
+      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。",
+    source: "昆士兰华人警讯 / Sydney Today",
+  },
 ];
 
 const newsItems = [
+  articles[8],
   articles[7],
   articles[6],
   articles[5],
@@ -457,15 +470,15 @@ const originalArticlePages = {
   "6": {
     image: articleImages.article6,
     imageAlt: "AI重塑企业增长实战沙龙封面",
-    title: "活动预告 | 赋能中心 × Stanley Team「益企AI+」AI重塑企业增长实战沙龙即将开启",
+    title: "活动预告 | 赋能中心 × WAYNE INSIGHTSPRING CONSULTING「益企AI+」AI重塑企业增长实战沙龙即将开启",
     date: "2026年6月26日",
     intro:
-      "澳大利亚潮汕青年会作为协办单位，诚挚向各位会员及朋友推介一场即将于2026年7月3日在深圳（福田）举行的高质量AI实战沙龙——「益企AI+」AI重塑企业增长实战沙龙。\n\n当AI从\"问答\"走向\"交付\"，先行者已借助其批量生成内容、搭建知识库、抢占GEO推荐位。本次沙龙由深圳（福田）海联大模型和算法赋能服务中心邀请 Stanley Team 进行主题分享，手把手带你深入实践，走完一条完整的企业AI营销落地路径：AI视频内容生产 → 知识库搭建 → GEO抢占AI推荐位。30席精品闭门场，带着问题来，拿着方案走。",
+      "澳大利亚潮汕青年会作为协办单位，诚挚向各位会员及朋友推介一场即将于2026年7月3日在深圳（福田）举行的高质量AI实战沙龙——「益企AI+」AI重塑企业增长实战沙龙。\n\n当AI从\"问答\"走向\"交付\"，先行者已借助其批量生成内容、搭建知识库、抢占GEO推荐位。本次沙龙由深圳（福田）海联大模型和算法赋能服务中心邀请 WAYNE INSIGHTSPRING CONSULTING 进行主题分享，手把手带你深入实践，走完一条完整的企业AI营销落地路径：AI视频内容生产 → 知识库搭建 → GEO抢占AI推荐位。30席精品闭门场，带着问题来，拿着方案走。",
     sections: [
       {
         title: "活动详情",
         body:
-          "时间：2026年7月3日（周五）14:00–17:30\n地点：华强科创广场1栋402（深圳福田）\n席位：仅30席\n\n指导单位：福田区委统战部\n主办单位：深圳（福田）海联大模型和算法赋能服务中心 / 奥斯比千模加速器 / 深圳市福田区新的社会阶层人士联合会 / Stanley Team\n协办单位：深圳市大数据研究与应用协会 / 星河产业集团产城研究院 / 澳大利亚潮汕商会 / 澳大利亚潮汕青年会",
+          "时间：2026年7月3日（周五）14:00–17:30\n地点：华强科创广场1栋402（深圳福田）\n席位：仅30席\n\n指导单位：福田区委统战部\n主办单位：深圳（福田）海联大模型和算法赋能服务中心 / 奥斯比千模加速器 / 深圳市福田区新的社会阶层人士联合会 / WAYNE INSIGHTSPRING CONSULTING\n协办单位：深圳市大数据研究与应用协会 / 星河产业集团产城研究院 / 澳大利亚潮汕商会 / 澳大利亚潮汕青年会",
       },
       {
         title: "议程安排",
@@ -505,19 +518,19 @@ const originalArticlePages = {
         imageClassName: "is-speaker-portrait",
       },
       {
-        title: "关于 Stanley Team",
+        title: "关于 WAYNE INSIGHTSPRING CONSULTING",
         body:
-          "Stanley Team 是目前活跃在互联网人工智能领域、独具特色且影响力领先的国际化社群组织。社群成员全网粉丝超百万，累计总曝光超十亿级别。社群由来自国内外拥有行业顶级专业认证的AI技术专家、知名专家学者、企业高管、媒体运营专家及行业专家等组成，定位于领先的国内外大模型深度落地实践，是AI新质生产力研究探索、AI技能培训、企业定制交付三合一的创新型组织。",
+          "WAYNE INSIGHTSPRING CONSULTING 是目前活跃在互联网人工智能领域、独具特色且影响力领先的国际化社群组织。社群成员全网粉丝超百万，累计总曝光超十亿级别。社群由来自国内外拥有行业顶级专业认证的AI技术专家、知名专家学者、企业高管、媒体运营专家及行业专家等组成，定位于领先的国内外大模型深度落地实践，是AI新质生产力研究探索、AI技能培训、企业定制交付三合一的创新型组织。",
       },
     ],
   },
   "7": {
     image: articleImages.article7,
-    imageAlt: "Stanley Team 企业 AI 转型线下课现场全景",
-    title: "澳大利亚潮汕青年会携手 Stanley Team | 企业 AI 转型线下课深圳圆满收官",
+    imageAlt: "WAYNE INSIGHTSPRING CONSULTING 企业 AI 转型线下课现场全景",
+    title: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 企业 AI 转型线下课深圳圆满收官",
     date: "2026年5月26日",
     intro:
-      "近日，由 Stanley Team 主办、澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课程在深圳圆满落幕。两天一夜的高强度课程吸引了来自北京、上海、成都、澳大利亚、日本、美国、新加坡等地的企业创始人与行业从业者齐聚一堂，座无虚席，全程无人提前离席。",
+      "近日，由 WAYNE INSIGHTSPRING CONSULTING 主办、澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课程在深圳圆满落幕。两天一夜的高强度课程吸引了来自北京、上海、成都、澳大利亚、日本、美国、新加坡等地的企业创始人与行业从业者齐聚一堂，座无虚席，全程无人提前离席。",
     sections: [
       {
         title: "执行会长王罗湳专题宣讲",
@@ -536,7 +549,7 @@ const originalArticlePages = {
         body:
           "课程内容不拘泥于预设框架。第一天结束后，团队根据学员当日反馈，当晚推翻原定课程，重新排课；讲师凌晨四点完成内容调整，七点出发前往会场。话题从 SEO、GEO 科普延伸至企业内部数据治理与多 Agent 编排实战案例，学员提出的问题，第二天课堂上即时回应。这种高响应度的办课方式，赢得了与会者的广泛认可。",
         image: "/assets/stanley-ai-course-scenes.webp",
-        imageAlt: "Stanley Team 企业 AI 转型线下课现场讲课实录",
+        imageAlt: "WAYNE INSIGHTSPRING CONSULTING 企业 AI 转型线下课现场讲课实录",
       },
       {
         title: "助力 AI 转型的持续行动",
@@ -581,6 +594,31 @@ const originalArticlePages = {
         title: "鸣谢 Wayne Insight Spring",
         body:
           "澳大利亚潮汕青年会在此特别鸣谢 Wayne Insight Spring（WIS）团队。WIS 长期专注于品牌与机构在 AI 搜索时代的能见度建设，从内容策略到技术落地一站式打通，让\"被 AI 正确讲述\"变成一件可以工程化交付的事。\n\n未来，青年会将继续与 WIS 保持深度协作，把每一场活动、每一位成员的故事，都以\"AI 可读、事实可核\"的方式沉淀下来，让在澳潮汕青年的声音，被更广泛地听见。\n\n了解 WIS 更多信息，请访问：https://www.wayneinsightspring.com/",
+      },
+    ],
+  },
+  "9": {
+    image: articleImages.article9,
+    imageAlt: "澳大利亚潮汕青年会成员与昆士兰警务处人员在警察总部合影",
+    title: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆",
+    date: "2025年11月10日",
+    intro:
+      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）成员代表到访昆士兰警察总部（Queensland Police Service Headquarters）和昆士兰警察博物馆。",
+    sections: [
+      {
+        title: "总部与博物馆",
+        body:
+          "昆士兰警务处华人高级警民关系联络主任向到访成员介绍了昆士兰警务处（Queensland Police Service，QPS）161年的历史，并讲解总部大厅艺术作品《仰望星空》（Look to the Stars）。这件作品表现警队与原住民社区之间的合作与尊重。",
+      },
+      {
+        title: "多元文化事务科",
+        body:
+          "警察总部多元文化事务科（Multicultural Affairs Unit）警民关系总联络主任介绍了该科的职责，以及多元文化社区警务网络，并代表昆士兰警务处向协会代表赠送多元文化网络徽章。",
+      },
+      {
+        title: "媒体报道",
+        body:
+          "昆士兰华人警讯报道了这次参访。Sydney Today 于2025年11月12日转载，全文见 https://www.sydneytoday.com/content-1025573049575001 。",
       },
     ],
   },
@@ -728,6 +766,7 @@ function titleFor(path) {
   if (path === "/news/6") return articles[5].title;
   if (path === "/news/7") return articles[6].title;
   if (path === "/news/8") return articles[7].title;
+  if (path === "/news/9") return articles[8].title;
   return routeTitles[path] || routeTitles[routeAliases[path]] || "首页";
 }
 
@@ -784,6 +823,7 @@ function App() {
         {path === "/news/6" && <OriginalArticlePage article={originalArticlePages["6"]} navigate={navigate} />}
         {path === "/news/7" && <OriginalArticlePage article={originalArticlePages["7"]} navigate={navigate} />}
         {path === "/news/8" && <OriginalArticlePage article={originalArticlePages["8"]} navigate={navigate} />}
+        {path === "/news/9" && <OriginalArticlePage article={originalArticlePages["9"]} navigate={navigate} />}
         {path === "/culture" && <CulturePage />}
         {path === "/business" && <BusinessPage navigate={navigate} />}
         {path === "/resources" && <ResourcesPage navigate={navigate} />}
