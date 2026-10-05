@@ -8,6 +8,15 @@ const registrationNumber = "IA4881891";
 const legalDescription = `${siteName}是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 ${registrationNumber}，致力于弘扬潮汕文化、凝聚在澳潮汕青年、促进公益参与与中澳交流。`;
 const publicEmail = "info@austeoswa.com";
 const publicAddress = "172 Scarborough St, Southport QLD 4215";
+const logoUrl = `${siteUrl}/assets/atya-logo.png`;
+const postalAddress = {
+  "@type": "PostalAddress",
+  streetAddress: "172 Scarborough St",
+  addressLocality: "Southport",
+  addressRegion: "QLD",
+  postalCode: "4215",
+  addressCountry: "AU",
+};
 
 const routes = [
   {
@@ -211,12 +220,28 @@ const publicWhitelist = [
   "downloads/atya-constitution.docx",
 ];
 
+const newsPublisher = {
+  "@type": "Organization",
+  name: siteName,
+  url: `${siteUrl}/`,
+  logo: {
+    "@type": "ImageObject",
+    url: logoUrl,
+  },
+};
+
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
     .replaceAll('"', "&quot;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+}
+
+function absoluteUrl(value) {
+  if (!value) return "";
+  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  return `${siteUrl}${value.startsWith("/") ? value : `/${value}`}`;
 }
 
 function breadcrumb(route) {
@@ -251,6 +276,7 @@ const organizationEntity = {
   legalName: siteName,
   alternateName: ["Australia Teoswa Youth Association", "ATYA"],
   url: `${siteUrl}/`,
+  logo: logoUrl,
   description: legalDescription,
   foundingDate: "2019",
   identifier: {
@@ -259,7 +285,7 @@ const organizationEntity = {
     value: registrationNumber,
   },
   email: publicEmail,
-  address: publicAddress,
+  address: postalAddress,
   areaServed: ["Queensland", "Gold Coast", "Brisbane", "Australia"],
   knowsAbout: ["潮汕文化", "Teochew culture", "青年社团", "公益活动", "中澳交流"],
   additionalProperty: [
@@ -421,8 +447,9 @@ const routeJsonLd = {
       mainEntity: {
         "@type": "Organization",
         name: siteName,
+        logo: logoUrl,
         email: publicEmail,
-        address: publicAddress,
+        address: postalAddress,
         areaServed: "Australia",
       },
     },
@@ -465,90 +492,99 @@ const routeJsonLd = {
   "/news/1": [
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "NewsArticle",
       headline: "乡音相连，共筑未来",
       description: "澳大利亚潮汕同乡会与澳洲潮汕青年会代表团赴悉尼参加中秋晚宴暨昆士兰分会授牌仪式，深化两地潮团交流合作。",
       url: `${siteUrl}/news/1`,
+      datePublished: "2025-09-24",
+      image: "https://tca-prod-public.oss-cn-shanghai.aliyuncs.com/new/new1-03.webp",
       inLanguage: "zh-CN",
       author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
-      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: newsPublisher,
     },
   ],
   "/news/2": [
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "NewsArticle",
       headline: "参观澳洲潮州同乡会馆",
       description: "澳洲潮汕同乡会与青年会代表团参访悉尼潮州同乡会馆，交流会务经验，推动青年互动、文化传承与社团协作。",
       url: `${siteUrl}/news/2`,
+      datePublished: "2025-09-24",
+      image: "https://tca-prod-public.oss-cn-shanghai.aliyuncs.com/new/new1-15.webp",
       inLanguage: "zh-CN",
       author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
-      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: newsPublisher,
     },
   ],
   "/news/3": [
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "NewsArticle",
       headline: "给阿嬷的情书昆士兰州首映礼",
       description: "澳大利亚潮汕青年会联合 CMC 华人影业在布里斯班举办《给阿嬷的情书》昆士兰州首映礼，让潮汕方言电影连接海外家庭记忆。",
       url: `${siteUrl}/news/3`,
       datePublished: "2026-06-16",
+      image: `${siteUrl}/assets/letter-to-grandma-poster.webp`,
       inLanguage: "zh-CN",
       author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
-      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: newsPublisher,
     },
   ],
   "/news/4": [
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "NewsArticle",
       headline: "澳大利亚潮汕青年会拜访布里斯班总领馆",
       description: "澳大利亚潮汕青年会代表拜访中国驻布里斯班总领馆，就青年社群服务、文化传承与中澳友好交流进行沟通。",
       url: `${siteUrl}/news/4`,
       datePublished: "2026-06-23",
+      image: `${siteUrl}/assets/consulate-visit-20260623.webp`,
       inLanguage: "zh-CN",
       author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
-      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: newsPublisher,
     },
   ],
   "/news/5": [
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "NewsArticle",
       headline: "《给阿嬷的情书》澳大利亚昆士兰州首映礼圆满举行",
       description: "《给阿嬷的情书》布里斯班首映礼圆满举行，澳大利亚潮汕青年会与 CMC Pictures 邀请观众在大银幕重温潮汕侨批与家庭记忆。",
       url: `${siteUrl}/news/5`,
-      datePublished: "2026-06-25",
+      datePublished: "2026-06-24",
+      image: `${siteUrl}/assets/letter-to-grandma-premiere-qld.webp`,
       inLanguage: "zh-CN",
       author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
-      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: newsPublisher,
     },
   ],
   "/news/6": [
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "NewsArticle",
       headline: "「益企AI+」AI重塑企业增长实战沙龙即将开启",
       description: "澳大利亚潮汕青年会作为协办单位，推介2026年7月3日深圳福田「益企AI+」实战沙龙，Stanley Team 主题分享，30席精品闭门场。",
       url: `${siteUrl}/news/6`,
-      datePublished: "2026-06-28",
+      datePublished: "2026-06-26",
+      image: `${siteUrl}/assets/ai-growth-salon-cover.webp`,
       inLanguage: "zh-CN",
       author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
-      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: newsPublisher,
     },
   ],
   "/news/7": [
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "NewsArticle",
       headline: "澳大利亚潮汕青年会携手 Stanley Team | 企业 AI 转型线下课深圳圆满收官",
       description: "澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课在深圳圆满落幕。执行会长王罗湳全程统筹并发表「中国 AI 生态全景」与「企业 AI 转型」专题宣讲。",
       url: `${siteUrl}/news/7`,
-      datePublished: "2026-07-05",
+      datePublished: "2026-05-26",
+      image: `${siteUrl}/assets/stanley-ai-course-venue.webp`,
       inLanguage: "zh-CN",
       author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
-      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: newsPublisher,
     },
   ],
   "/news/8": [
@@ -562,25 +598,46 @@ const routeJsonLd = {
       image: `${siteUrl}/assets/wis-ai-cover.jpeg`,
       inLanguage: "zh-CN",
       author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
-      publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      publisher: newsPublisher,
     },
   ],
 };
+
+function wantsIdentityNoscript(path) {
+  return path === "/about"
+    || path === "/contact"
+    || path === "/news"
+    || path.startsWith("/news/")
+    || path === "/new"
+    || path.startsWith("/new/");
+}
+
+function newsArticleSchema(route) {
+  const candidates = [route.path, route.canonicalPath].filter(Boolean);
+  for (const path of candidates) {
+    const match = (routeJsonLd[path] || []).find((block) => block["@type"] === "NewsArticle");
+    if (match) return match;
+  }
+  return null;
+}
 
 function buildNoscript(route) {
   const title = route.path === "/"
     ? siteName
     : `${route.title} | ${siteName}`;
-  const inner =
-    `<h1>${escapeHtml(title)}</h1>` +
-    `<p>${escapeHtml(route.description)}</p>` +
-    (route.path !== "/"
-      ? `<p><a href="${siteUrl}/">← 返回首页</a></p>`
-      : `<p>联系邮箱：<a href="mailto:${publicEmail}">${publicEmail}</a></p>`);
+  const identity = wantsIdentityNoscript(route.path)
+    ? `<p>${escapeHtml(`${siteName}（Australia Teoswa Youth Association）是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 ${registrationNumber}。`)}</p>` +
+      `<p>${escapeHtml(route.description)}</p>` +
+      `<p>公开联系邮箱：<a href="mailto:${publicEmail}">${escapeHtml(publicEmail)}</a></p>` +
+      `<p>办公地址：${escapeHtml(publicAddress)}</p>`
+    : `<p>${escapeHtml(route.description)}</p>`;
+  const backLink = route.path !== "/"
+    ? `<p><a href="${siteUrl}/">← 返回首页</a></p>`
+    : "";
   return (
     `<main style="max-width:760px;margin:3rem auto;padding:1.5rem;` +
     `font-family:Arial,sans-serif;line-height:1.7;">` +
-    inner +
+    `<h1>${escapeHtml(title)}</h1>${identity}${backLink}` +
     `</main>`
   );
 }
@@ -590,8 +647,9 @@ function setMeta(html, route) {
   const description = route.description;
   const url = `${siteUrl}${route.canonicalPath ?? (route.path === "/" ? "/" : route.path)}`;
   const jsonLd = [breadcrumb(route), ...(routeJsonLd[route.path] || [])];
+  const article = newsArticleSchema(route);
 
-  return html
+  let next = html
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeHtml(description)}" />`)
     .replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/, `<meta property="og:title" content="${escapeHtml(title)}" />`)
@@ -599,7 +657,22 @@ function setMeta(html, route) {
     .replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/>/, `<meta property="og:url" content="${escapeHtml(url)}" />`)
     .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:title" content="${escapeHtml(title)}" />`)
     .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${escapeHtml(description)}" />`)
-    .replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/, `<link rel="canonical" href="${escapeHtml(url)}" />`)
+    .replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/, `<link rel="canonical" href="${escapeHtml(url)}" />`);
+
+  if (article?.datePublished) {
+    const image = absoluteUrl(article.image);
+    next = next.replace(
+      /<meta\s+property="og:type"\s+content="[^"]*"\s*\/>/,
+      `<meta property="og:type" content="article" />\n    <meta property="article:published_time" content="${escapeHtml(article.datePublished)}" />`,
+    );
+    if (image) {
+      next = next
+        .replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/>/, `<meta property="og:image" content="${escapeHtml(image)}" />`)
+        .replace(/<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:image" content="${escapeHtml(image)}" />`);
+    }
+  }
+
+  return next
     .replace("</head>", `${jsonLd.map((item) => `    <script type="application/ld+json">${JSON.stringify(item)}</script>`).join("\n")}\n  </head>`)
     .replace(/<noscript>[\s\S]*?<\/noscript>/, `<noscript>${buildNoscript(route)}</noscript>`);
 }

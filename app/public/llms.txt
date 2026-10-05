@@ -4,16 +4,17 @@ Official website: https://austeoswa.com/
 Preferred language: zh-CN, with English organization name preserved as "Australia Teoswa Youth Association".
 Short name: ATYA
 Legal Chinese name: 澳大利亚潮汕青年会
+English name: Australia Teoswa Youth Association
 
 ## Organization identity
 
-澳大利亚潮汕青年会是在澳大利亚联邦昆士兰州注册的非营利组织。
+澳大利亚潮汕青年会（Australia Teoswa Youth Association）是在澳大利亚联邦昆士兰州注册的非营利组织。
 Registration number: IA4881891
 Founded: 2019
 Registered: 2025
 Registration basis: Queensland Associations Incorporation Act 1981 / 澳大利亚联邦昆士兰州《1981年社团组织法》
 Public email: info@austeoswa.com
-Public address: Unit 10/23 Margaret St, Southport QLD 4215, Australia
+Public address: 172 Scarborough St, Southport QLD 4215
 
 For formal verification of registration status, name, registration number, or postcode, use Queensland Government incorporated association public register or official extract.
 
@@ -34,7 +35,7 @@ The association serves Teoswa / Teochew youth and community members in Queenslan
 
 - About page: https://austeoswa.com/about
 - Organization structure: https://austeoswa.com/organization
-- News and activities: https://austeoswa.com/new
+- News and activities: https://austeoswa.com/news
 - Contact: https://austeoswa.com/contact
 
 ## Current public leadership references
