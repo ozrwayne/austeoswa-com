@@ -322,19 +322,23 @@ const articles = [
   },
 ];
 
-const newsItems = [
-  articles[7],
-  articles[5],
-  articles[8],
-  articles[4],
-  articles[3],
-  articles[2],
-  articles[6],
-  articles[0],
-  articles[1],
-];
+function articleTimestamp(date) {
+  const match = /^(\d{4})年(\d{1,2})月(\d{1,2})日$/.exec(date || "");
+  if (!match) return 0;
+  return Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+}
 
-const homeNewsList = newsItems.filter((item) => item.id !== articles[2].id && item.id !== articles[6].id);
+function byArticleDateNewestFirst(a, b) {
+  const byDate = articleTimestamp(b.date) - articleTimestamp(a.date);
+  if (byDate !== 0) return byDate;
+  return Number(a.id) - Number(b.id);
+}
+
+const newsItems = [...articles].sort(byArticleDateNewestFirst);
+
+const homeNewsList = newsItems
+  .filter((item) => item.id !== articles[2].id && item.id !== articles[6].id)
+  .sort(byArticleDateNewestFirst);
 
 const originalArticlePages = {
   "1": {
