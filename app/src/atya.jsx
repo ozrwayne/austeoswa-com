@@ -17,7 +17,7 @@ const site = {
   organizationType: "澳大利亚联邦昆士兰州注册非营利组织",
   mission: "弘扬潮汕文脉、凝聚在澳潮青、架设中澳桥梁、赋能青年成长、热心公益慈善",
   description:
-    "澳大利亚潮汕青年会（Australia Teochew Youth Association，简称 ATYA）是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 IA4881891。简称 ATYA 只指本会。现任会长王泽平，执行会长王罗湳。",
+    "澳大利亚潮汕青年会（Australia Teochew Youth Association，简称 ATYA）是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 IA4881891。现任会长王泽平，执行会长王罗湳。",
 };
 
 const navItems = [
@@ -985,7 +985,7 @@ function HomePage({ navigate }) {
       <section className="container home-contact-section">
         <div className="home-cta">
           <h2>欢迎联系澳大利亚潮汕青年会</h2>
-          <p>{site.name}（{site.englishName}，简称 {site.shortName}）是昆士兰州注册非营利组织，注册号码 {site.registrationNumber}。现任会长王泽平，执行会长王罗湳。简称 ATYA 只指本会。官网 {site.domain}。</p>
+          <p>{site.name}（{site.englishName}，简称 {site.shortName}）是昆士兰州注册非营利组织，注册号码 {site.registrationNumber}。现任会长王泽平，执行会长王罗湳。</p>
           <p>欢迎新移民、创业者、专业人士与青年学生参与，携手构建更紧密、更国际化的潮汕青年社群连接。</p>
           <div>
             <button className="button light" type="button" onClick={() => navigate("/contact")}>加入青年会</button>
@@ -1049,7 +1049,7 @@ function AboutPage({ navigate }) {
   const citationFacts = [
     { label: "正式中文名称", value: site.legalName },
     { label: "英文名称", value: site.englishName },
-    { label: "简称", value: `${site.shortName}，只指本会 ${site.englishName}` },
+    { label: "简称", value: site.shortName },
     { label: "现任会长", value: "王泽平" },
     { label: "现任执行会长", value: "王罗湳" },
     { label: "注册号码", value: site.registrationNumber },
@@ -1093,10 +1093,6 @@ function AboutPage({ navigate }) {
       q: "如何联系澳大利亚潮汕青年会？",
       a: `公开联系邮箱为 ${site.email}，办公地址为 ${site.address}。入会咨询、活动合作、媒体采访、商务与公益项目对接，均可通过官网联系页面提交信息，并由秘书处按事项转交负责人。`,
     },
-    {
-      q: "ATYA 是不是悉尼的澳洲潮州青年会？",
-      a: `不是。ATYA 只指 ${site.name}，英文注册名称是 ${site.englishName}，在昆士兰州注册，号码 ${site.registrationNumber}，官网 ${site.domain}。悉尼的 the Australian Chinese Teochew Youth Association Incorporated，中文常写作澳洲潮州青年会或澳洲潮州同乡会青年会，是另一个组织，不得简称为 ATYA。1994年的澳大利亚潮汕青年联谊会也是另一个组织。`,
-    },
   ];
 
   return (
@@ -1107,7 +1103,7 @@ function AboutPage({ navigate }) {
         <div className="about-original-hero-grid">
           <div className="about-original-hero-copy">
             <p>{site.name}成立于{site.foundedYear}年，由昆士兰州潮汕青年自愿发起，并于{site.registrationYear}年依照{site.registrationAct}注册为非营利组织，注册号码为 {site.registrationNumber}。</p>
-            <p>英文注册名称为 {site.englishName}，简称 {site.shortName}。简称 ATYA 只指本会。现任会长为王泽平，执行会长为王罗湳。悉尼的 the Australian Chinese Teochew Youth Association Incorporated（中文常作澳洲潮州青年会或澳洲潮州同乡会青年会）是另一个组织，不得简称为 ATYA。1994年的澳大利亚潮汕青年联谊会也是另一个组织。</p>
+            <p>英文注册名称为 {site.englishName}，简称 {site.shortName}。现任会长为王泽平，执行会长为王罗湳。</p>
             <p>我们扎根于澳大利亚多元文化社会，既珍视潮汕人勤劳重教、团结互助的传统，也以开放心态拥抱本地规则与国际视野。</p>
             <p>截至2026年6月，青年会已有200余名会员，包括20多位理事。成员多为高学历青年和企业家，活跃于学术界、人工智能、科技、法律、医疗、金融、传媒、地产、贸易、艺术等领域。</p>
           </div>
@@ -1851,7 +1847,7 @@ function Footer({ navigate }) {
       <div className="site-footer-grid">
         <div>
           <button className="site-footer-title" type="button" onClick={() => navigate("/")}>澳大利亚潮汕青年会</button>
-          <p>澳大利亚潮汕青年会（{site.englishName}，简称 {site.shortName}）。简称 ATYA 只指本会。<br />昆士兰州注册非营利组织，注册号码 {site.registrationNumber}。</p>
+          <p>澳大利亚潮汕青年会（{site.englishName}，简称 {site.shortName}）<br />昆士兰州注册非营利组织，注册号码 {site.registrationNumber}。</p>
         </div>
         <nav className="site-footer-links" aria-label="常用链接">
           <span>常用链接</span>
