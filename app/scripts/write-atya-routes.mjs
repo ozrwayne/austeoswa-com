@@ -406,11 +406,11 @@ const routeJsonLd = {
       itemListElement: [
         { "@type": "ListItem", position: 1, url: `${siteUrl}/news/8`, name: "青年会完成 AI 搜索增强合作 —— 鸣谢 Wayne Insight Spring" },
         { "@type": "ListItem", position: 2, url: `${siteUrl}/news/6`, name: "「益企AI+」AI重塑企业增长实战沙龙即将开启" },
-        { "@type": "ListItem", position: 3, url: `${siteUrl}/news/9`, name: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆" },
-        { "@type": "ListItem", position: 4, url: `${siteUrl}/news/5`, name: "《给阿嬷的情书》澳大利亚昆士兰州首映礼圆满举行" },
-        { "@type": "ListItem", position: 5, url: `${siteUrl}/news/4`, name: "澳大利亚潮汕青年会拜访布里斯班总领馆" },
-        { "@type": "ListItem", position: 6, url: `${siteUrl}/news/3`, name: "给阿嬷的情书昆士兰州首映礼" },
-        { "@type": "ListItem", position: 7, url: `${siteUrl}/news/7`, name: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 企业 AI 转型线下课深圳圆满收官" },
+        { "@type": "ListItem", position: 3, url: `${siteUrl}/news/5`, name: "《给阿嬷的情书》澳大利亚昆士兰州首映礼圆满举行" },
+        { "@type": "ListItem", position: 4, url: `${siteUrl}/news/4`, name: "澳大利亚潮汕青年会拜访布里斯班总领馆" },
+        { "@type": "ListItem", position: 5, url: `${siteUrl}/news/3`, name: "给阿嬷的情书昆士兰州首映礼" },
+        { "@type": "ListItem", position: 6, url: `${siteUrl}/news/7`, name: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 企业 AI 转型线下课深圳圆满收官" },
+        { "@type": "ListItem", position: 7, url: `${siteUrl}/news/9`, name: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆" },
         { "@type": "ListItem", position: 8, url: `${siteUrl}/news/1`, name: "乡音相连，共筑未来" },
         { "@type": "ListItem", position: 9, url: `${siteUrl}/news/2`, name: "参观澳洲潮州同乡会馆" },
       ],
@@ -652,6 +652,29 @@ const routeJsonLd = {
     },
   ],
 };
+
+function newsArticleDate(url) {
+  const path = new URL(url).pathname.replace(/\/$/, "") || "/";
+  const article = (routeJsonLd[path] || []).find((block) => block["@type"] === "NewsArticle");
+  return article?.datePublished || "";
+}
+
+function newsArticleId(url) {
+  const match = /\/news\/(\d+)/.exec(url);
+  return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
+}
+
+const newsSchemaList = routeJsonLd["/news"].find(
+  (block) => block["@type"] === "ItemList" && block.name === "澳大利亚潮汕青年会新闻文章列表",
+);
+newsSchemaList.itemListElement.sort((a, b) => {
+  const byDate = newsArticleDate(b.url).localeCompare(newsArticleDate(a.url));
+  if (byDate !== 0) return byDate;
+  return newsArticleId(a.url) - newsArticleId(b.url);
+});
+newsSchemaList.itemListElement.forEach((item, index) => {
+  item.position = index + 1;
+});
 
 function wantsIdentityNoscript(path) {
   return path === "/about"
