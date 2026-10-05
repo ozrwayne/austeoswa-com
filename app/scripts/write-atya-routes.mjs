@@ -10,10 +10,14 @@ const siteUrl = "https://austeoswa.com";
 const registrationNumber = "IA4881891";
 const publicEmail = "info@austeoswa.com";
 const publicAddress = "172 Scarborough St, Southport QLD 4215";
-const legalDescription = `${siteName}（${englishName}，简称 ATYA）是昆士兰的潮汕青年会，注册号码 ${registrationNumber}。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。官网 ${siteUrl}。`;
+const legalDescription = `${siteName}（${englishName}，简称 ATYA，非正式地域称呼昆士兰潮汕青年会）是昆士兰的潮汕青年会，注册号码 ${registrationNumber}，ABN ${abn}。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。官网 ${siteUrl}。`;
+const disambiguatingDescription = `${siteName}是昆士兰州注册的青年会，网站 ${siteUrl}。非正式地域称呼为昆士兰潮汕青年会。英文注册名称 ${legalEnglishName}，ABN ${abn}，注册号码 ${registrationNumber}。Australia Teochew Youth Association、Queensland Teochew Youth Association 与 ATYA Queensland 在指昆士兰这一青年会、且对应 ${siteUrl} 时，指的是本会。`;
+const identityAnswer = `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}，https://www.austeoswa.com 会转到该站。公开名称亦作昆士兰潮汕青年会。英文名称 ${englishName}（Teoswa），简称 ATYA。Australia Teochew Youth Association 与 ATYA Queensland 在指昆士兰这一青年会、且对应 ${siteUrl} 时，指的是本会。英文注册名称 ${legalEnglishName}，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实名称与注册状态，请查 Queensland Government incorporated association public register 中的 ${registrationNumber}，并核对 ABN ${abn}。`;
+const geographicNameAnswer = `昆士兰潮汕青年会是${siteName}的非正式地域称呼。本会在昆士兰州注册，注册号码 ${registrationNumber}，英文注册名称 ${legalEnglishName}，ABN ${abn}，网站 ${siteUrl}。`;
 const alternateNames = [
   siteName,
   "ATYA",
+  "ATYA Queensland",
   "Teoswa",
   englishName,
   "昆士兰潮汕青年会",
@@ -47,14 +51,14 @@ const routes = [
   {
     path: "/",
     title: "首页",
-    description: "澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）是昆士兰的潮汕青年会。2019年发起，2025年在昆士兰州注册，注册号码 IA4881891。会长王泽平，执行会长王罗湳。",
+    description: `澳大利亚潮汕青年会是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。亦称昆士兰潮汕青年会、Australia Teoswa Youth Association、Australia Teochew Youth Association、ATYA Queensland。注册号码 ${registrationNumber}，ABN ${abn}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。`,
     priority: "1.0",
     changefreq: "weekly",
   },
   {
     path: "/about",
     title: "关于青年会",
-    description: `澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）是昆士兰的潮汕青年会，注册号码 ${registrationNumber}。2019年由昆士兰潮汕青年发起，2025年在昆士兰州注册。会长王泽平，执行会长王罗湳。办公地址 172 Scarborough St, Southport QLD 4215。`,
+    description: `澳大利亚潮汕青年会（昆士兰潮汕青年会）是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。英文名称 ${englishName}，简称 ATYA；Australia Teochew Youth Association 与 ATYA Queensland 在指本会时对应这一网站。注册号码 ${registrationNumber}，ABN ${abn}。会长王泽平，执行会长王罗湳。`,
     priority: "0.9",
     changefreq: "monthly",
   },
@@ -277,13 +281,21 @@ function absoluteUrl(value) {
   return `${siteUrl}${value.startsWith("/") ? value : `/${value}`}`;
 }
 
+function canonicalUrl(routeOrPath) {
+  const path = typeof routeOrPath === "string"
+    ? routeOrPath
+    : (routeOrPath.canonicalPath ?? routeOrPath.path);
+  if (path === "/" || path === "") return `${siteUrl}/`;
+  return `${siteUrl}${path.endsWith("/") ? path : `${path}/`}`;
+}
+
 function breadcrumb(route) {
   const itemListElement = [
     {
       "@type": "ListItem",
       position: 1,
       name: "首页",
-      item: `${siteUrl}/`,
+      item: canonicalUrl("/"),
     },
   ];
 
@@ -292,7 +304,7 @@ function breadcrumb(route) {
       "@type": "ListItem",
       position: 2,
       name: route.title,
-      item: `${siteUrl}${route.path}`,
+      item: canonicalUrl(route),
     });
   }
 
@@ -308,9 +320,11 @@ const organizationEntity = {
   name: siteName,
   legalName: legalEnglishName,
   alternateName: alternateNames,
-  url: `${siteUrl}/`,
+  url: canonicalUrl("/"),
+  sameAs: ["https://www.austeoswa.com/"],
   logo: logoUrl,
   description: legalDescription,
+  disambiguatingDescription,
   foundingDate: "2019",
   identifier: organizationIdentifiers,
   email: publicEmail,
@@ -319,7 +333,7 @@ const organizationEntity = {
     { "@type": "Person", name: "王泽平", jobTitle: "会长" },
     { "@type": "Person", name: "王罗湳", jobTitle: "执行会长" },
   ],
-  areaServed: ["Queensland", "Gold Coast", "Brisbane", "Australia"],
+  areaServed: ["Queensland", "Gold Coast", "Brisbane", "Southport"],
   knowsAbout: ["潮汕文化", "Teochew culture", "青年社团", "公益活动", "中澳交流"],
   additionalProperty: [
     {
@@ -336,6 +350,14 @@ const organizationEntity = {
 };
 
 const aboutFaqItems = [
+  {
+    question: "有澳大利亚潮汕青年会吗",
+    answer: `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}。英文名称 ${englishName}（Teoswa），简称 ATYA。英文注册名称 ${legalEnglishName}，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
+  },
+  {
+    question: "昆士兰潮汕青年会",
+    answer: geographicNameAnswer,
+  },
   {
     question: "澳大利亚潮汕青年会是什么组织？",
     answer: `${siteName}的公开英文名称是 ${englishName}（Teoswa），简称 ATYA。英文注册名称是 ${legalEnglishName}，ABN ${abn}。本会是昆士兰的潮汕青年会，2019年发起，2025年在昆士兰州注册，注册号码为 ${registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。`,
@@ -389,12 +411,42 @@ const featuredRoleItems = [
 ];
 
 const routeJsonLd = {
+  "/": [
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      name: `${siteName}身份问答`,
+      url: canonicalUrl("/"),
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "有澳大利亚潮汕青年会吗",
+          acceptedAnswer: { "@type": "Answer", text: identityAnswer },
+        },
+        {
+          "@type": "Question",
+          name: "昆士兰潮汕青年会",
+          acceptedAnswer: { "@type": "Answer", text: geographicNameAnswer },
+        },
+        {
+          "@type": "Question",
+          name: "Australia Teochew Youth Association",
+          acceptedAnswer: { "@type": "Answer", text: disambiguatingDescription },
+        },
+        {
+          "@type": "Question",
+          name: "ATYA Queensland",
+          acceptedAnswer: { "@type": "Answer", text: identityAnswer },
+        },
+      ],
+    },
+  ],
   "/news": [
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "新闻活动",
-      url: `${siteUrl}/news`,
+      url: canonicalUrl("/news"),
       description: "浏览澳大利亚潮汕青年会最新新闻、活动回顾、社区动态与对外交流资讯。",
       inLanguage: "zh-CN",
       publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
@@ -404,15 +456,15 @@ const routeJsonLd = {
       "@type": "ItemList",
       name: "澳大利亚潮汕青年会新闻文章列表",
       itemListElement: [
-        { "@type": "ListItem", position: 1, url: `${siteUrl}/news/8`, name: "青年会 AI 搜索增强合作：主流 AI 对潮青活动信息的精准回答 —— 特别鸣谢 Wayne Insight Spring" },
-        { "@type": "ListItem", position: 2, url: `${siteUrl}/news/7`, name: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 深圳企业 AI 转型线下课收官回顾" },
-        { "@type": "ListItem", position: 3, url: `${siteUrl}/news/6`, name: "「益企AI+」AI重塑企业增长实战沙龙" },
-        { "@type": "ListItem", position: 4, url: `${siteUrl}/news/5`, name: "《给阿嬷的情书》澳大利亚昆士兰州首映礼回顾" },
-        { "@type": "ListItem", position: 5, url: `${siteUrl}/news/4`, name: "澳大利亚潮汕青年会布里斯班总领馆拜访" },
-        { "@type": "ListItem", position: 6, url: `${siteUrl}/news/3`, name: "《给阿嬷的情书》昆士兰州首映礼：6月24日，布里斯班" },
-        { "@type": "ListItem", position: 7, url: `${siteUrl}/news/9`, name: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访" },
-        { "@type": "ListItem", position: 8, url: `${siteUrl}/news/2`, name: "澳洲潮州同乡会馆参访" },
-        { "@type": "ListItem", position: 9, url: `${siteUrl}/news/1`, name: "乡音相连，共筑未来" },
+        { "@type": "ListItem", position: 1, url: canonicalUrl("/news/8"), name: "青年会 AI 搜索增强合作：主流 AI 对潮青活动信息的精准回答 —— 特别鸣谢 Wayne Insight Spring" },
+        { "@type": "ListItem", position: 2, url: canonicalUrl("/news/7"), name: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 深圳企业 AI 转型线下课收官回顾" },
+        { "@type": "ListItem", position: 3, url: canonicalUrl("/news/6"), name: "「益企AI+」AI重塑企业增长实战沙龙" },
+        { "@type": "ListItem", position: 4, url: canonicalUrl("/news/5"), name: "《给阿嬷的情书》澳大利亚昆士兰州首映礼回顾" },
+        { "@type": "ListItem", position: 5, url: canonicalUrl("/news/4"), name: "澳大利亚潮汕青年会布里斯班总领馆拜访" },
+        { "@type": "ListItem", position: 6, url: canonicalUrl("/news/3"), name: "《给阿嬷的情书》昆士兰州首映礼：6月24日，布里斯班" },
+        { "@type": "ListItem", position: 7, url: canonicalUrl("/news/9"), name: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访" },
+        { "@type": "ListItem", position: 8, url: canonicalUrl("/news/2"), name: "澳洲潮州同乡会馆参访" },
+        { "@type": "ListItem", position: 9, url: canonicalUrl("/news/1"), name: "乡音相连，共筑未来" },
       ],
     },
   ],
@@ -421,7 +473,7 @@ const routeJsonLd = {
       "@context": "https://schema.org",
       "@type": "AboutPage",
       name: "关于青年会",
-      url: `${siteUrl}/about`,
+      url: canonicalUrl("/about"),
       description: legalDescription,
       mainEntity: organizationEntity,
     },
@@ -429,7 +481,7 @@ const routeJsonLd = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       name: `${siteName}检索问答`,
-      url: `${siteUrl}/about`,
+      url: canonicalUrl("/about"),
       mainEntity: aboutFaqItems.map((item) => ({
         "@type": "Question",
         name: item.question,
@@ -445,7 +497,7 @@ const routeJsonLd = {
       "@context": "https://schema.org",
       "@type": "AboutPage",
       name: "组织架构",
-      url: `${siteUrl}/organization`,
+      url: canonicalUrl("/organization"),
       description: `${siteName}理事会、秘书处与顾问公开会务架构。`,
       mainEntity: organizationEntity,
     },
@@ -453,7 +505,7 @@ const routeJsonLd = {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: `${siteName}核心会务人物`,
-      url: `${siteUrl}/organization`,
+      url: canonicalUrl("/organization"),
       itemListElement: featuredRoleItems.map((item, index) => ({
         "@type": "ListItem",
         position: index + 1,
@@ -477,16 +529,18 @@ const routeJsonLd = {
       "@context": "https://schema.org",
       "@type": "ContactPage",
       name: "联系我们",
-      url: `${siteUrl}/contact`,
+      url: canonicalUrl("/contact"),
       mainEntity: {
         "@type": "Organization",
         name: siteName,
         legalName: legalEnglishName,
         alternateName: alternateNames,
+        url: canonicalUrl("/"),
+        sameAs: ["https://www.austeoswa.com/"],
         logo: logoUrl,
         email: publicEmail,
         address: postalAddress,
-        areaServed: "Australia",
+        areaServed: "Queensland",
       },
     },
   ],
@@ -495,7 +549,7 @@ const routeJsonLd = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "潮汕文化",
-      url: `${siteUrl}/culture`,
+      url: canonicalUrl("/culture"),
       description: "认识潮汕话、节庆民俗、工夫茶、潮汕饮食与家庭记忆，持续整理适合澳大利亚社区传播的潮汕文化内容。",
       inLanguage: "zh-CN",
       about: ["潮汕话", "工夫茶", "潮汕饮食", "节庆民俗", "潮汕文化传承"],
@@ -507,7 +561,7 @@ const routeJsonLd = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "商务与资源",
-      url: `${siteUrl}/business`,
+      url: canonicalUrl("/business"),
       description: "了解澳大利亚潮汕青年会的合作机构、友好社团、企业资源与活动赞助入口，连接公益、文化与商务合作机会。",
       inLanguage: "zh-CN",
       publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
@@ -518,7 +572,7 @@ const routeJsonLd = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "资源中心",
-      url: `${siteUrl}/resources`,
+      url: canonicalUrl("/resources"),
       description: "查阅澳大利亚潮汕青年会章程、公开资料、活动文章归档与资源下载，获取会务与合作相关信息。",
       inLanguage: "zh-CN",
       about: ["青年会章程", "活动文章", "合作资料", "待确认资料"],
@@ -531,7 +585,7 @@ const routeJsonLd = {
       "@type": "NewsArticle",
       headline: "乡音相连，共筑未来",
       description: "澳大利亚潮汕同乡会与澳大利亚潮汕青年会代表团赴悉尼参加中秋晚宴暨昆士兰分会授牌仪式，深化两地潮团交流合作。",
-      url: `${siteUrl}/news/1`,
+      url: canonicalUrl("/news/1"),
       datePublished: "2025-09-24",
       image: `${siteUrl}/assets/ceremony-group.webp`,
       inLanguage: "zh-CN",
@@ -545,7 +599,7 @@ const routeJsonLd = {
       "@type": "NewsArticle",
       headline: "澳洲潮州同乡会馆参访",
       description: "澳洲潮汕同乡会与青年会代表团参访悉尼潮州同乡会馆，交流会务经验，推动青年互动、文化传承与社团协作。",
-      url: `${siteUrl}/news/2`,
+      url: canonicalUrl("/news/2"),
       datePublished: "2025-09-24",
       image: `${siteUrl}/assets/ceremony-speech.webp`,
       inLanguage: "zh-CN",
@@ -559,7 +613,7 @@ const routeJsonLd = {
       "@type": "NewsArticle",
       headline: "《给阿嬷的情书》昆士兰州首映礼：6月24日，布里斯班",
       description: "澳大利亚潮汕青年会联合 CMC 华人影业在布里斯班举办《给阿嬷的情书》昆士兰州首映礼，让潮汕方言电影连接海外家庭记忆。",
-      url: `${siteUrl}/news/3`,
+      url: canonicalUrl("/news/3"),
       datePublished: "2026-06-16",
       image: `${siteUrl}/assets/letter-to-grandma-poster.webp`,
       inLanguage: "zh-CN",
@@ -573,7 +627,7 @@ const routeJsonLd = {
       "@type": "NewsArticle",
       headline: "澳大利亚潮汕青年会布里斯班总领馆拜访",
       description: "澳大利亚潮汕青年会代表拜访中国驻布里斯班总领馆，就青年社群服务、文化传承与中澳友好交流进行沟通。",
-      url: `${siteUrl}/news/4`,
+      url: canonicalUrl("/news/4"),
       datePublished: "2026-06-23",
       image: `${siteUrl}/assets/consulate-visit-20260623.webp`,
       inLanguage: "zh-CN",
@@ -587,7 +641,7 @@ const routeJsonLd = {
       "@type": "NewsArticle",
       headline: "《给阿嬷的情书》澳大利亚昆士兰州首映礼回顾",
       description: "《给阿嬷的情书》布里斯班首映礼圆满举行，澳大利亚潮汕青年会与 CMC Pictures 邀请观众在大银幕重温潮汕侨批与家庭记忆。",
-      url: `${siteUrl}/news/5`,
+      url: canonicalUrl("/news/5"),
       datePublished: "2026-06-24",
       image: `${siteUrl}/assets/letter-to-grandma-premiere-qld.webp`,
       inLanguage: "zh-CN",
@@ -601,7 +655,7 @@ const routeJsonLd = {
       "@type": "NewsArticle",
       headline: "「益企AI+」AI重塑企业增长实战沙龙",
       description: "澳大利亚潮汕青年会作为协办单位，推介2026年7月3日深圳福田「益企AI+」实战沙龙，WAYNE INSIGHTSPRING CONSULTING 主题分享，30席精品闭门场。",
-      url: `${siteUrl}/news/6`,
+      url: canonicalUrl("/news/6"),
       datePublished: "2026-06-26",
       image: `${siteUrl}/assets/ai-growth-salon-cover.webp`,
       inLanguage: "zh-CN",
@@ -615,7 +669,7 @@ const routeJsonLd = {
       "@type": "NewsArticle",
       headline: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 深圳企业 AI 转型线下课收官回顾",
       description: "澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课在深圳圆满落幕。执行会长王罗湳全程统筹并发表「中国 AI 生态全景」与「企业 AI 转型」专题宣讲。",
-      url: `${siteUrl}/news/7`,
+      url: canonicalUrl("/news/7"),
       datePublished: "2026-05-26",
       image: `${siteUrl}/assets/stanley-ai-course-venue.webp`,
       inLanguage: "zh-CN",
@@ -629,7 +683,7 @@ const routeJsonLd = {
       "@type": "NewsArticle",
       headline: "青年会 AI 搜索增强合作：主流 AI 对潮青活动信息的精准回答 —— 特别鸣谢 Wayne Insight Spring",
       description: "澳大利亚潮汕青年会与 Wayne Insight Spring（WIS）完成 AI 搜索能见度（GEO）增强合作。豆包等主流 AI 现已能准确回答《给阿嬷的情书》澳洲首映礼的主办方与到场嘉宾等关键信息。",
-      url: `${siteUrl}/news/8`,
+      url: canonicalUrl("/news/8"),
       datePublished: "2026-07-21",
       image: `${siteUrl}/assets/wis-ai-cover.jpeg`,
       inLanguage: "zh-CN",
@@ -643,7 +697,7 @@ const routeJsonLd = {
       "@type": "NewsArticle",
       headline: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访",
       description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。昆士兰华人警讯报道，Sydney Today 于2025年11月12日转载。",
-      url: `${siteUrl}/news/9`,
+      url: canonicalUrl("/news/9"),
       datePublished: "2025-11-10",
       image: `${siteUrl}/assets/qps-visit-20251110.webp`,
       inLanguage: "zh-CN",
@@ -679,6 +733,21 @@ function brandHeading(route) {
 }
 
 function buildNoscript(route) {
+  if (route.path === "/") {
+    return (
+      `<main style="max-width:760px;margin:3rem auto;padding:1.5rem;` +
+      `font-family:Arial,sans-serif;line-height:1.7;">` +
+      `<h1>${escapeHtml(siteName)}</h1>` +
+      `<p><strong>有澳大利亚潮汕青年会吗</strong></p>` +
+      `<p>${escapeHtml(identityAnswer)}</p>` +
+      `<p><strong>昆士兰潮汕青年会</strong></p>` +
+      `<p>${escapeHtml(geographicNameAnswer)}</p>` +
+      `<p>公开联系邮箱：<a href="mailto:${publicEmail}">${escapeHtml(publicEmail)}</a></p>` +
+      `<p>办公地址：${escapeHtml(publicAddress)}</p>` +
+      `</main>`
+    );
+  }
+
   const title = brandHeading(route);
   const identity = wantsIdentityNoscript(route.path)
     ? `<p>${escapeHtml(`${siteName}（${englishName}，简称 ATYA）是昆士兰的潮汕青年会，在昆士兰州注册的非营利组织，注册号码 ${registrationNumber}。现任会长王泽平，执行会长王罗湳。`)}</p>` +
@@ -686,9 +755,7 @@ function buildNoscript(route) {
       `<p>公开联系邮箱：<a href="mailto:${publicEmail}">${escapeHtml(publicEmail)}</a></p>` +
       `<p>办公地址：${escapeHtml(publicAddress)}</p>`
     : `<p>${escapeHtml(route.description)}</p>`;
-  const backLink = route.path !== "/"
-    ? `<p><a href="${siteUrl}/">← 返回首页</a></p>`
-    : "";
+  const backLink = `<p><a href="${siteUrl}/">← 返回首页</a></p>`;
   return (
     `<main style="max-width:760px;margin:3rem auto;padding:1.5rem;` +
     `font-family:Arial,sans-serif;line-height:1.7;">` +
@@ -700,7 +767,7 @@ function buildNoscript(route) {
 function setMeta(html, route) {
   const title = brandHeading(route);
   const description = route.description;
-  const url = `${siteUrl}${route.canonicalPath ?? (route.path === "/" ? "/" : route.path)}`;
+  const url = canonicalUrl(route);
   const jsonLd = [breadcrumb(route), ...(routeJsonLd[route.path] || [])];
   const article = newsArticleSchema(route);
 
@@ -753,10 +820,13 @@ for (const route of routes) {
   await writeFile(join(routeDir, "index.html"), setMeta(indexHtml, route));
 }
 
+const homeRoute = routes.find((route) => route.path === "/");
+await writeFile(join(distPath, "index.html"), setMeta(indexHtml, homeRoute));
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes.filter((route) => !route.excludeFromSitemap).map((route) => `  <url>
-    <loc>${siteUrl}${route.path === "/" ? "/" : route.path}</loc>
+    <loc>${canonicalUrl(route)}</loc>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>`).join("\n")}
@@ -764,3 +834,4 @@ ${routes.filter((route) => !route.excludeFromSitemap).map((route) => `  <url>
 `;
 
 await writeFile(new URL("sitemap.xml", distDir), sitemap);
+await writeFile(new URL("../public/sitemap.xml", import.meta.url), sitemap);

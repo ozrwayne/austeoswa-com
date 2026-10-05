@@ -12,14 +12,20 @@ const routes = [
   "/news/4",
   "/news/5",
   "/news/6",
-  "/new",
-  "/new/1",
-  "/new/2",
-  "/new/letter-to-grandma-premiere",
+  "/news/7",
+  "/news/8",
+  "/news/9",
   "/culture",
   "/business",
   "/resources",
   "/contact",
+];
+
+const aliasRoutes = [
+  "/new",
+  "/new/1",
+  "/new/2",
+  "/new/letter-to-grandma-premiere",
 ];
 
 const requiredFiles = [
@@ -120,7 +126,7 @@ async function collectFiles(entry) {
   return nested.flat();
 }
 
-for (const route of routes) {
+for (const route of [...routes, ...aliasRoutes]) {
   const path = routeIndexPath(route);
   await assertReadable(path);
   const html = await readFile(path, "utf8");
@@ -147,13 +153,30 @@ if (!manifest.icons?.some((icon) => icon.src === "/assets/atya-logo.png")) {
 
 const sitemap = await readFile("dist/sitemap.xml", "utf8");
 for (const route of routes) {
-  const loc = `https://austeoswa.com${route === "/" ? "/" : route}`;
+  const loc = route === "/" ? "https://austeoswa.com/" : `https://austeoswa.com${route}/`;
   assertIncludes(sitemap, `<loc>${loc}</loc>`, "dist/sitemap.xml");
+}
+for (const route of aliasRoutes) {
+  assertExcludes(sitemap, `<loc>https://austeoswa.com${route}</loc>`, "dist/sitemap.xml");
+  assertExcludes(sitemap, `<loc>https://austeoswa.com${route}/</loc>`, "dist/sitemap.xml");
 }
 assertExcludes(sitemap, "/publications", "dist/sitemap.xml");
 for (const route of forbiddenPublicRoutes) {
   assertExcludes(sitemap, route, "dist/sitemap.xml");
 }
+
+const aboutHtml = await readFile("dist/about/index.html", "utf8");
+assertIncludes(aboutHtml, 'rel="canonical" href="https://austeoswa.com/about/"', "dist/about/index.html");
+assertIncludes(aboutHtml, "有澳大利亚潮汕青年会吗", "dist/about/index.html");
+const homeHtml = await readFile("dist/index.html", "utf8");
+assertIncludes(homeHtml, 'rel="canonical" href="https://austeoswa.com/"', "dist/index.html");
+assertIncludes(homeHtml, "FAQPage", "dist/index.html");
+assertIncludes(homeHtml, "有澳大利亚潮汕青年会吗", "dist/index.html");
+assertIncludes(homeHtml, "ATYA Queensland", "dist/index.html");
+const llms = await readFile("dist/llms.txt", "utf8");
+assertIncludes(llms, "Question: 有澳大利亚潮汕青年会吗", "dist/llms.txt");
+assertIncludes(llms, "IA4881891", "dist/llms.txt");
+assertIncludes(llms, "83 440 994 308", "dist/llms.txt");
 
 for (const file of requiredFiles) {
   await assertReadable(file);
