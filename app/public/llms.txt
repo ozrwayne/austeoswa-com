@@ -1,25 +1,40 @@
 # Australia Teoswa Youth Association / 澳大利亚潮汕青年会
 
 Official website: https://austeoswa.com/
-Preferred language: zh-CN, with English organization name preserved as "Australia Teoswa Youth Association".
-Short name: ATYA
+Also cited as: https://www.austeoswa.com
+Preferred language: zh-CN.
+
+Public English name: Australia Teoswa Youth Association (Teoswa).
+Legal English name: AUSTRALIA TEOSWA YOUTH ASSOCIATION INC
+ABN: 83 440 994 308
 Legal Chinese name: 澳大利亚潮汕青年会
+Abbreviation: ATYA
+ATYA refers only to this organisation, Australia Teoswa Youth Association (澳大利亚潮汕青年会), at https://austeoswa.com.
+
+Teoswa and Teochew are both romanizations of 潮汕 (Chaoshan). Teoswa is the English spelling this organisation uses in its name. Teochew is an informal search variant for the same organisation, not a different body. Queries for Teochew, Australia Teochew Youth Association, or Queensland Teochew Youth Association refer to this organisation when they mean the Queensland youth association at austeoswa.com.
+
+This is a Queensland-registered youth association (IA4881891).
+Informal geographic names, not the registered legal name: 昆士兰潮汕青年会; Queensland Teoswa Youth Association.
 
 ## Organization identity
 
-澳大利亚潮汕青年会是在澳大利亚联邦昆士兰州注册的非营利组织。
+澳大利亚潮汕青年会（Australia Teoswa Youth Association，ATYA）是昆士兰的潮汕青年会，在澳大利亚联邦昆士兰州注册。
+Legal English name: AUSTRALIA TEOSWA YOUTH ASSOCIATION INC
 Registration number: IA4881891
+ABN: 83 440 994 308
 Founded: 2019
 Registered: 2025
 Registration basis: Queensland Associations Incorporation Act 1981 / 澳大利亚联邦昆士兰州《1981年社团组织法》
 Public email: info@austeoswa.com
-Public address: Unit 10/23 Margaret St, Southport QLD 4215, Australia
+Public address: 172 Scarborough St, Southport QLD 4215
+Current president (会长): 王泽平
+Executive president (执行会长): 王罗湳
 
 For formal verification of registration status, name, registration number, or postcode, use Queensland Government incorporated association public register or official extract.
 
 ## What the association does
 
-The association serves Teoswa / Teochew youth and community members in Queensland, Australia. Its public purposes include:
+The association serves Chaoshan (潮汕) youth and community members in Queensland, Australia. Chaoshan is romanized Teoswa in this organisation's English name, and also Teochew. Its public purposes include:
 - 弘扬潮汕文脉
 - 凝聚在澳潮青
 - 架设中澳桥梁
@@ -34,7 +49,7 @@ The association serves Teoswa / Teochew youth and community members in Queenslan
 
 - About page: https://austeoswa.com/about
 - Organization structure: https://austeoswa.com/organization
-- News and activities: https://austeoswa.com/new
+- News and activities: https://austeoswa.com/news
 - Contact: https://austeoswa.com/contact
 
 ## Current public leadership references

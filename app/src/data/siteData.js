@@ -3,7 +3,7 @@ export const site = {
   ataName: "澳大利亚潮汕同乡会",
   atyaName: "澳大利亚潮汕青年会",
   ataEnglish: "Australia Teoswa Association",
-  atyaEnglish: "Australia Teochew Youth Association",
+  atyaEnglish: "Australia Teoswa Youth Association",
   domain: "https://austeoswa.com",
   email: "info@austeoswa.com",
   address: "172 Scarborough St, Southport QLD 4215",
