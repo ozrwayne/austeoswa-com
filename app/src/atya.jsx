@@ -325,11 +325,11 @@ const articles = [
 const newsItems = [
   articles[7],
   articles[5],
+  articles[8],
   articles[4],
   articles[3],
   articles[2],
   articles[6],
-  articles[8],
   articles[0],
   articles[1],
 ];
