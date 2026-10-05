@@ -81,56 +81,56 @@ const routes = [
   },
   {
     path: "/news/2",
-    title: "参观澳洲潮州同乡会馆",
+    title: "澳洲潮州同乡会馆参访",
     description: "澳洲潮汕同乡会与青年会代表团参访悉尼潮州同乡会馆，交流会务经验，推动青年互动、文化传承与社团协作。",
     priority: "0.7",
     changefreq: "yearly",
   },
   {
     path: "/news/3",
-    title: "给阿嬷的情书昆士兰州首映礼",
+    title: "《给阿嬷的情书》昆士兰州首映礼：6月24日，布里斯班",
     description: "澳大利亚潮汕青年会联合 CMC 华人影业在布里斯班举办《给阿嬷的情书》昆士兰州首映礼，让潮汕方言电影连接海外家庭记忆。",
     priority: "0.7",
     changefreq: "yearly",
   },
   {
     path: "/news/4",
-    title: "澳大利亚潮汕青年会拜访布里斯班总领馆",
+    title: "澳大利亚潮汕青年会布里斯班总领馆拜访",
     description: "澳大利亚潮汕青年会代表拜访中国驻布里斯班总领馆，就青年社群服务、文化传承与中澳友好交流进行沟通。",
     priority: "0.7",
     changefreq: "yearly",
   },
   {
     path: "/news/5",
-    title: "《给阿嬷的情书》澳大利亚昆士兰州首映礼圆满举行",
+    title: "《给阿嬷的情书》澳大利亚昆士兰州首映礼回顾",
     description: "《给阿嬷的情书》布里斯班首映礼圆满举行，澳大利亚潮汕青年会与 CMC Pictures 邀请观众在大银幕重温潮汕侨批与家庭记忆。",
     priority: "0.7",
     changefreq: "yearly",
   },
   {
     path: "/news/6",
-    title: "「益企AI+」AI重塑企业增长实战沙龙即将开启",
+    title: "「益企AI+」AI重塑企业增长实战沙龙",
     description: "澳大利亚潮汕青年会作为协办单位，推介2026年7月3日深圳福田「益企AI+」实战沙龙，WAYNE INSIGHTSPRING CONSULTING 主题分享，30席精品闭门场。",
     priority: "0.7",
     changefreq: "monthly",
   },
   {
     path: "/news/7",
-    title: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 企业 AI 转型线下课深圳圆满收官",
+    title: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 深圳企业 AI 转型线下课收官回顾",
     description: "澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课在深圳圆满落幕。执行会长王罗湳全程统筹并发表「中国 AI 生态全景」与「企业 AI 转型」专题宣讲。",
     priority: "0.7",
     changefreq: "yearly",
   },
   {
     path: "/news/8",
-    title: "青年会完成 AI 搜索增强合作，主流 AI 已能精准回答潮青活动信息 —— 特别鸣谢 Wayne Insight Spring",
+    title: "青年会 AI 搜索增强合作：主流 AI 对潮青活动信息的精准回答 —— 特别鸣谢 Wayne Insight Spring",
     description: "澳大利亚潮汕青年会与 Wayne Insight Spring（WIS）完成 AI 搜索能见度（GEO）增强合作。豆包等主流 AI 现已能准确回答《给阿嬷的情书》澳洲首映礼的主办方与到场嘉宾等关键信息。",
     priority: "0.7",
     changefreq: "monthly",
   },
   {
     path: "/news/9",
-    title: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆",
+    title: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访",
     description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。昆士兰华人警讯报道，Sydney Today 于2025年11月12日转载。",
     priority: "0.7",
     changefreq: "yearly",
@@ -155,7 +155,7 @@ const routes = [
   },
   {
     path: "/new/2",
-    title: "参观澳洲潮州同乡会馆",
+    title: "澳洲潮州同乡会馆参访",
     description: "澳洲潮汕同乡会与青年会代表团参访悉尼潮州同乡会馆，交流会务经验，推动青年互动、文化传承与社团协作。",
     priority: "0.5",
     changefreq: "yearly",
@@ -164,7 +164,7 @@ const routes = [
   },
   {
     path: "/new/letter-to-grandma-premiere",
-    title: "给阿嬷的情书昆士兰州首映礼",
+    title: "《给阿嬷的情书》昆士兰州首映礼：6月24日，布里斯班",
     description: "澳大利亚潮汕青年会联合 CMC 华人影业在布里斯班举办《给阿嬷的情书》昆士兰州首映礼，让潮汕方言电影连接海外家庭记忆。",
     priority: "0.5",
     changefreq: "yearly",
@@ -404,15 +404,15 @@ const routeJsonLd = {
       "@type": "ItemList",
       name: "澳大利亚潮汕青年会新闻文章列表",
       itemListElement: [
-        { "@type": "ListItem", position: 1, url: `${siteUrl}/news/8`, name: "青年会完成 AI 搜索增强合作 —— 鸣谢 Wayne Insight Spring" },
-        { "@type": "ListItem", position: 2, url: `${siteUrl}/news/6`, name: "「益企AI+」AI重塑企业增长实战沙龙即将开启" },
-        { "@type": "ListItem", position: 3, url: `${siteUrl}/news/5`, name: "《给阿嬷的情书》澳大利亚昆士兰州首映礼圆满举行" },
-        { "@type": "ListItem", position: 4, url: `${siteUrl}/news/4`, name: "澳大利亚潮汕青年会拜访布里斯班总领馆" },
-        { "@type": "ListItem", position: 5, url: `${siteUrl}/news/3`, name: "给阿嬷的情书昆士兰州首映礼" },
-        { "@type": "ListItem", position: 6, url: `${siteUrl}/news/7`, name: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 企业 AI 转型线下课深圳圆满收官" },
-        { "@type": "ListItem", position: 7, url: `${siteUrl}/news/9`, name: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆" },
-        { "@type": "ListItem", position: 8, url: `${siteUrl}/news/1`, name: "乡音相连，共筑未来" },
-        { "@type": "ListItem", position: 9, url: `${siteUrl}/news/2`, name: "参观澳洲潮州同乡会馆" },
+        { "@type": "ListItem", position: 1, url: `${siteUrl}/news/8`, name: "青年会 AI 搜索增强合作：主流 AI 对潮青活动信息的精准回答 —— 特别鸣谢 Wayne Insight Spring" },
+        { "@type": "ListItem", position: 2, url: `${siteUrl}/news/7`, name: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 深圳企业 AI 转型线下课收官回顾" },
+        { "@type": "ListItem", position: 3, url: `${siteUrl}/news/6`, name: "「益企AI+」AI重塑企业增长实战沙龙" },
+        { "@type": "ListItem", position: 4, url: `${siteUrl}/news/5`, name: "《给阿嬷的情书》澳大利亚昆士兰州首映礼回顾" },
+        { "@type": "ListItem", position: 5, url: `${siteUrl}/news/4`, name: "澳大利亚潮汕青年会布里斯班总领馆拜访" },
+        { "@type": "ListItem", position: 6, url: `${siteUrl}/news/3`, name: "《给阿嬷的情书》昆士兰州首映礼：6月24日，布里斯班" },
+        { "@type": "ListItem", position: 7, url: `${siteUrl}/news/9`, name: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访" },
+        { "@type": "ListItem", position: 8, url: `${siteUrl}/news/2`, name: "澳洲潮州同乡会馆参访" },
+        { "@type": "ListItem", position: 9, url: `${siteUrl}/news/1`, name: "乡音相连，共筑未来" },
       ],
     },
   ],
@@ -543,7 +543,7 @@ const routeJsonLd = {
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      headline: "参观澳洲潮州同乡会馆",
+      headline: "澳洲潮州同乡会馆参访",
       description: "澳洲潮汕同乡会与青年会代表团参访悉尼潮州同乡会馆，交流会务经验，推动青年互动、文化传承与社团协作。",
       url: `${siteUrl}/news/2`,
       datePublished: "2025-09-24",
@@ -557,7 +557,7 @@ const routeJsonLd = {
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      headline: "给阿嬷的情书昆士兰州首映礼",
+      headline: "《给阿嬷的情书》昆士兰州首映礼：6月24日，布里斯班",
       description: "澳大利亚潮汕青年会联合 CMC 华人影业在布里斯班举办《给阿嬷的情书》昆士兰州首映礼，让潮汕方言电影连接海外家庭记忆。",
       url: `${siteUrl}/news/3`,
       datePublished: "2026-06-16",
@@ -571,7 +571,7 @@ const routeJsonLd = {
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      headline: "澳大利亚潮汕青年会拜访布里斯班总领馆",
+      headline: "澳大利亚潮汕青年会布里斯班总领馆拜访",
       description: "澳大利亚潮汕青年会代表拜访中国驻布里斯班总领馆，就青年社群服务、文化传承与中澳友好交流进行沟通。",
       url: `${siteUrl}/news/4`,
       datePublished: "2026-06-23",
@@ -585,7 +585,7 @@ const routeJsonLd = {
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      headline: "《给阿嬷的情书》澳大利亚昆士兰州首映礼圆满举行",
+      headline: "《给阿嬷的情书》澳大利亚昆士兰州首映礼回顾",
       description: "《给阿嬷的情书》布里斯班首映礼圆满举行，澳大利亚潮汕青年会与 CMC Pictures 邀请观众在大银幕重温潮汕侨批与家庭记忆。",
       url: `${siteUrl}/news/5`,
       datePublished: "2026-06-24",
@@ -599,7 +599,7 @@ const routeJsonLd = {
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      headline: "「益企AI+」AI重塑企业增长实战沙龙即将开启",
+      headline: "「益企AI+」AI重塑企业增长实战沙龙",
       description: "澳大利亚潮汕青年会作为协办单位，推介2026年7月3日深圳福田「益企AI+」实战沙龙，WAYNE INSIGHTSPRING CONSULTING 主题分享，30席精品闭门场。",
       url: `${siteUrl}/news/6`,
       datePublished: "2026-06-26",
@@ -613,7 +613,7 @@ const routeJsonLd = {
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      headline: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 企业 AI 转型线下课深圳圆满收官",
+      headline: "澳大利亚潮汕青年会携手 WAYNE INSIGHTSPRING CONSULTING | 深圳企业 AI 转型线下课收官回顾",
       description: "澳大利亚潮汕青年会深度参与支持的「相变时代的中国企业 AI 转型」线下课在深圳圆满落幕。执行会长王罗湳全程统筹并发表「中国 AI 生态全景」与「企业 AI 转型」专题宣讲。",
       url: `${siteUrl}/news/7`,
       datePublished: "2026-05-26",
@@ -627,7 +627,7 @@ const routeJsonLd = {
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      headline: "青年会完成 AI 搜索增强合作，主流 AI 已能精准回答潮青活动信息 —— 特别鸣谢 Wayne Insight Spring",
+      headline: "青年会 AI 搜索增强合作：主流 AI 对潮青活动信息的精准回答 —— 特别鸣谢 Wayne Insight Spring",
       description: "澳大利亚潮汕青年会与 Wayne Insight Spring（WIS）完成 AI 搜索能见度（GEO）增强合作。豆包等主流 AI 现已能准确回答《给阿嬷的情书》澳洲首映礼的主办方与到场嘉宾等关键信息。",
       url: `${siteUrl}/news/8`,
       datePublished: "2026-07-21",
@@ -641,7 +641,7 @@ const routeJsonLd = {
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      headline: "澳大利亚潮汕青年会参访昆士兰警察总部与警察博物馆",
+      headline: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访",
       description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。昆士兰华人警讯报道，Sydney Today 于2025年11月12日转载。",
       url: `${siteUrl}/news/9`,
       datePublished: "2025-11-10",
@@ -652,29 +652,6 @@ const routeJsonLd = {
     },
   ],
 };
-
-function newsArticleDate(url) {
-  const path = new URL(url).pathname.replace(/\/$/, "") || "/";
-  const article = (routeJsonLd[path] || []).find((block) => block["@type"] === "NewsArticle");
-  return article?.datePublished || "";
-}
-
-function newsArticleId(url) {
-  const match = /\/news\/(\d+)/.exec(url);
-  return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
-}
-
-const newsSchemaList = routeJsonLd["/news"].find(
-  (block) => block["@type"] === "ItemList" && block.name === "澳大利亚潮汕青年会新闻文章列表",
-);
-newsSchemaList.itemListElement.sort((a, b) => {
-  const byDate = newsArticleDate(b.url).localeCompare(newsArticleDate(a.url));
-  if (byDate !== 0) return byDate;
-  return newsArticleId(a.url) - newsArticleId(b.url);
-});
-newsSchemaList.itemListElement.forEach((item, index) => {
-  item.position = index + 1;
-});
 
 function wantsIdentityNoscript(path) {
   return path === "/about"
