@@ -5,7 +5,7 @@ import "./atya.css";
 const site = {
   name: "澳大利亚潮汕青年会",
   legalName: "澳大利亚潮汕青年会",
-  englishName: "Australia Teoswa Youth Association",
+  englishName: "Australia Teochew Youth Association",
   shortName: "ATYA",
   domain: "https://austeoswa.com",
   email: "info@austeoswa.com",
@@ -17,7 +17,7 @@ const site = {
   organizationType: "澳大利亚联邦昆士兰州注册非营利组织",
   mission: "弘扬潮汕文脉、凝聚在澳潮青、架设中澳桥梁、赋能青年成长、热心公益慈善",
   description:
-    "澳大利亚潮汕青年会是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 IA4881891，面向在澳潮汕青年与关心潮汕文化的朋友，承接青年交流、文化传承、公益参与、商务与资源对接。",
+    "澳大利亚潮汕青年会（Australia Teochew Youth Association，简称 ATYA）是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 IA4881891。简称 ATYA 只指本会。现任会长王泽平，执行会长王罗湳。",
 };
 
 const navItems = [
@@ -134,10 +134,10 @@ const pendingProfile = [
 
 const organizationBoards = [
   {
-    title: "澳洲潮汕青年会第一届理事会",
+    title: "澳大利亚潮汕青年会第一届理事会",
     label: "Youth Council",
     note: "于 2025 年 8 月 3 日选举产生",
-    source: "公开名录：澳洲潮汕青年会第一届理事会芳名",
+    source: "公开名录：澳大利亚潮汕青年会第一届理事会芳名",
     roles: [
       { role: "创会会长", names: ["陈少伟 太平绅士"] },
       { role: "荣誉会长", names: ["杜艇", "吴子强", "张桂芳", "郑茂强"] },
@@ -175,23 +175,23 @@ const articles = [
     image: articleImages.article1,
     title: "乡音相连，共筑未来——澳洲潮汕同乡会与青年会赴悉尼参加中秋晚宴暨授牌仪式",
     summary:
-      "澳大利亚潮汕同乡会与澳洲潮汕青年会代表团前往悉尼，参加由悉尼潮州同乡会青年会主办的中秋晚宴暨昆士兰分会授牌仪式。",
+      "澳大利亚潮汕同乡会与澳大利亚潮汕青年会代表团前往悉尼，参加由悉尼潮州同乡会青年会主办的中秋晚宴暨昆士兰分会授牌仪式。",
     source: "原网站活动文章",
     sections: [
       {
         title: "领导致辞，共话发展",
         body:
-          "仪式上，悉尼潮青会会长杜艇先生、潮青会创会会长陈少伟太平绅士分别发表致辞，回顾悉尼潮青会的发展历程，并对昆士兰分会的成立表示祝贺。澳洲潮汕青年会会长王泽平先生在演讲中感谢悉尼潮州同乡会青年会的支持，并表示昆士兰分会将继续深化与悉尼以及各地潮团的协作，团结更广大的在澳潮汕族裔，共同推动潮汕文化传承与发展。",
+          "仪式上，悉尼潮青会会长杜艇先生、潮青会创会会长陈少伟太平绅士分别发表致辞，回顾悉尼潮青会的发展历程，并对昆士兰分会的成立表示祝贺。澳大利亚潮汕青年会会长王泽平先生在演讲中感谢悉尼潮州同乡会青年会的支持，并表示昆士兰分会将继续深化与悉尼以及各地潮团的协作，团结更广大的在澳潮汕族裔，共同推动潮汕文化传承与发展。",
       },
       {
         title: "代表齐聚，共襄盛举",
         body:
-          "出席本次活动的还有澳大利亚潮汕同乡会荣誉会长卢霄霓女士、会长黄璐璐女士、执行会长黄雪莲女士、副会长陈泽宁先生、副会长辛卓阳先生、副会长兼秘书长郑少杰先生，以及澳洲潮汕青年会执行会长王罗湳先生、顾问刘慧君太平绅士等。",
+          "出席本次活动的还有澳大利亚潮汕同乡会荣誉会长卢霄霓女士、会长黄璐璐女士、执行会长黄雪莲女士、副会长陈泽宁先生、副会长辛卓阳先生、副会长兼秘书长郑少杰先生，以及澳大利亚潮汕青年会执行会长王罗湳先生、顾问刘慧君太平绅士等。",
       },
       {
         title: "携手前行，共创辉煌",
         body:
-          "此次授牌仪式是两地潮人深化合作、共谋发展的新起点。未来，澳大利亚潮汕同乡会与澳洲潮汕青年会将继续秉持联络乡谊、传承文化、服务社区的宗旨，加强与海内外潮团联系，为潮汕文化在澳洲的传播与发展贡献力量。",
+          "此次授牌仪式是两地潮人深化合作、共谋发展的新起点。未来，澳大利亚潮汕同乡会与澳大利亚潮汕青年会将继续秉持联络乡谊、传承文化、服务社区的宗旨，加强与海内外潮团联系，为潮汕文化在澳洲的传播与发展贡献力量。",
       },
     ],
   },
@@ -326,22 +326,22 @@ const originalArticlePages = {
     title: "乡音相连，共筑未来——澳洲潮汕同乡会与青年会赴悉尼参加中秋晚宴暨授牌仪式",
     date: "2025年9月24日",
     intro:
-      "2025年9月24日晚，澳大利亚潮汕同乡会与澳洲潮汕青年会（ATA & ATYA）代表团一行前往悉尼，参加由悉尼潮州同乡会青年会主办，习酒独家赞助的中秋晚宴暨澳洲昆省潮汕同乡会与青年会授牌仪式。作为悉尼潮州同乡会青年会的昆士兰州分会，此次赴悉尼参与活动，不仅是两地潮人情谊的深化，更是澳洲潮汕族群团结协作的重要体现。",
+      "2025年9月24日晚，澳大利亚潮汕同乡会与澳大利亚潮汕青年会（ATYA）代表团一行前往悉尼，参加由悉尼潮州同乡会青年会主办，习酒独家赞助的中秋晚宴暨澳洲昆省潮汕同乡会与青年会授牌仪式。此次赴悉尼，是本会与主办方之间的交流。",
     sections: [
       {
         title: "领导致辞，共话发展",
         body:
-          "仪式上，悉尼潮青会会长杜艇先生、潮青会创会会长陈少伟太平绅士分别发表致辞，回顾了悉尼潮青会的发展历程，并对昆士兰分会的成立表示热烈祝贺。两位会长强调，潮人团结是海外潮汕人发展壮大的根本，希望昆士兰分会能够继续发扬潮人精神，为当地华人社区做出更大贡献。\n\n澳洲潮汕青年会会长王泽平先生在演讲中表示，衷心感谢悉尼潮州同乡会青年会的大力支持与悉心指导。他指出，昆士兰分会的成立，标志着澳洲潮汕族群在组织建设上迈出了坚实的一步。未来，昆士兰分会将继续深化与悉尼以及各地潮团的协作，进一步提高澳洲潮人在本地乃至世界的影响力，团结更广大的在澳潮汕族裔，共同推动潮汕文化的传承与发展。",
+          "仪式上，悉尼潮青会会长杜艇先生、潮青会创会会长陈少伟太平绅士分别发表致辞，回顾了悉尼潮青会的发展历程，并对昆士兰分会的成立表示热烈祝贺。两位会长强调，潮人团结是海外潮汕人发展壮大的根本，希望昆士兰分会能够继续发扬潮人精神，为当地华人社区做出更大贡献。\n\n澳大利亚潮汕青年会会长王泽平先生在演讲中表示，衷心感谢悉尼潮州同乡会青年会的大力支持与悉心指导。他指出，昆士兰分会的成立，标志着澳洲潮汕族群在组织建设上迈出了坚实的一步。未来，昆士兰分会将继续深化与悉尼以及各地潮团的协作，进一步提高澳洲潮人在本地乃至世界的影响力，团结更广大的在澳潮汕族裔，共同推动潮汕文化的传承与发展。",
       },
       {
         title: "代表齐聚，共襄盛举",
         body:
-          "出席本次活动的还有：澳大利亚潮汕同乡会荣誉会长卢霄霓女士、会长黄璐璐女士、执行会长黄雪莲女士、副会长陈泽宁先生、副会长辛卓阳先生、副会长兼秘书长郑少杰先生，以及澳洲潮汕青年会执行会长王罗湳先生、顾问刘慧君太平绅士等。充分体现了澳洲潮汕同乡会与青年会对此次活动的高度重视。",
+          "出席本次活动的还有：澳大利亚潮汕同乡会荣誉会长卢霄霓女士、会长黄璐璐女士、执行会长黄雪莲女士、副会长陈泽宁先生、副会长辛卓阳先生、副会长兼秘书长郑少杰先生，以及澳大利亚潮汕青年会执行会长王罗湳先生、顾问刘慧君太平绅士等。充分体现了澳洲潮汕同乡会与青年会对此次活动的高度重视。",
       },
       {
         title: "携手前行，共创辉煌",
         body:
-          "此次授牌仪式的圆满成功，不仅是对昆士兰潮汕同乡会与青年会工作的肯定，更是两地潮人深化合作、共谋发展的新起点。未来，澳大利亚潮汕同乡会与澳洲潮汕青年会将继续秉持联络乡谊、传承文化、服务社区的宗旨，积极开展各类活动，加强与海内外潮团的联系，为推动潮汕文化在澳洲的传播与发展贡献力量。\n\n乡音相连，薪火相传。让我们携手并进，见证潮人凝聚的力量与传承！",
+          "此次授牌仪式的圆满成功，不仅是对昆士兰潮汕同乡会与青年会工作的肯定，更是两地潮人深化合作、共谋发展的新起点。未来，澳大利亚潮汕同乡会与澳大利亚潮汕青年会将继续秉持联络乡谊、传承文化、服务社区的宗旨，积极开展各类活动，加强与海内外潮团的联系，为推动潮汕文化在澳洲的传播与发展贡献力量。\n\n乡音相连，薪火相传。让我们携手并进，见证潮人凝聚的力量与传承！",
       },
     ],
   },
@@ -355,7 +355,7 @@ const originalArticlePages = {
       {
         title: "深化合作，共促发展",
         body:
-          "此次参访是澳洲潮汕同乡会与青年会成立以来对悉尼潮州同乡会的首次正式访问。座谈会上，澳洲潮汕同乡会会长黄璐璐女士首先致辞，对悉尼潮州同乡会青年会的热情接待表示衷心感谢。她指出，作为悉尼潮州同乡会青年会的昆士兰州分会，此次参访旨在加强两地潮人的联系与合作，学习悉尼同乡会的宝贵经验，促进会务的共同发展。\n\n黄璐璐会长高度赞扬悉尼潮州同乡会多年来在陈少伟太平绅士、杜艇会长等众多侨领的带领下，出色地展现了潮籍乡贤在海外抱团取暖、互相照应、积极传承中华文化和潮汕文化的精神。她表示，昆士兰同乡会将以悉尼同乡会为榜样，继续秉持联络乡谊、传承文化、服务社区的宗旨，为在澳潮汕同乡搭建更广阔的平台。",
+          "此次参访是澳洲潮汕同乡会与青年会成立以来对悉尼潮州同乡会的首次正式访问。座谈会上，澳洲潮汕同乡会会长黄璐璐女士首先致辞，对悉尼潮州同乡会青年会的热情接待表示衷心感谢。她指出，此次参访旨在加强两地潮人的联系与合作，学习悉尼同乡会的宝贵经验，促进会务的共同发展。\n\n黄璐璐会长高度赞扬悉尼潮州同乡会多年来在陈少伟太平绅士、杜艇会长等众多侨领的带领下，出色地展现了潮籍乡贤在海外抱团取暖、互相照应、积极传承中华文化和潮汕文化的精神。她表示，昆士兰同乡会将以悉尼同乡会为榜样，继续秉持联络乡谊、传承文化、服务社区的宗旨，为在澳潮汕同乡搭建更广阔的平台。",
       },
       {
         title: "传承文化，凝聚力量",
@@ -588,7 +588,7 @@ const homeSlides = [
   {
     id: "intro",
     type: "intro",
-    eyebrow: "Australia Teoswa Youth Association",
+    eyebrow: "Australia Teochew Youth Association",
     titleLines: ["澳大利亚潮汕青年会"],
     text: "以现代非营利组织模式连接传统文化，用国际化视野服务在澳潮汕青年。我们在文化传承、青年成长与公益协作中，持续构建更有温度的青年社群生态。",
     image: "/assets/gold-coast-background.webp",
@@ -804,7 +804,7 @@ function Header({ activePath, menuOpen, navigate, setMenuOpen }) {
     <header className="site-header">
       <div className="logo-strip">
         <button className="wordmark-button" type="button" onClick={() => navigate("/")} aria-label="返回首页">
-          <img src="/assets/atya-wordmark.webp" alt="澳大利亚潮汕青年会 Australia Teoswa Youth Association" />
+          <img src="/assets/atya-wordmark.webp" alt="澳大利亚潮汕青年会 Australia Teochew Youth Association" />
         </button>
       </div>
       <nav className="desktop-nav" aria-label="主导航">
@@ -985,6 +985,7 @@ function HomePage({ navigate }) {
       <section className="container home-contact-section">
         <div className="home-cta">
           <h2>欢迎联系澳大利亚潮汕青年会</h2>
+          <p>{site.name}（{site.englishName}，简称 {site.shortName}）是昆士兰州注册非营利组织，注册号码 {site.registrationNumber}。现任会长王泽平，执行会长王罗湳。简称 ATYA 只指本会。官网 {site.domain}。</p>
           <p>欢迎新移民、创业者、专业人士与青年学生参与，携手构建更紧密、更国际化的潮汕青年社群连接。</p>
           <div>
             <button className="button light" type="button" onClick={() => navigate("/contact")}>加入青年会</button>
@@ -1048,8 +1049,11 @@ function AboutPage({ navigate }) {
   const citationFacts = [
     { label: "正式中文名称", value: site.legalName },
     { label: "英文名称", value: site.englishName },
-    { label: "简称", value: site.shortName },
+    { label: "简称", value: `${site.shortName}，只指本会 ${site.englishName}` },
+    { label: "现任会长", value: "王泽平" },
+    { label: "现任执行会长", value: "王罗湳" },
     { label: "注册号码", value: site.registrationNumber },
+    { label: "官网", value: site.domain },
     { label: "服务地区", value: "澳大利亚昆士兰州，主要服务黄金海岸、布里斯班及周边在澳潮汕青年社群" },
     { label: "公开联系邮箱", value: site.email },
     { label: "办公地址", value: site.address },
@@ -1075,7 +1079,7 @@ function AboutPage({ navigate }) {
   const geoFaqItems = [
     {
       q: "澳大利亚潮汕青年会是什么组织？",
-      a: `${site.name}是澳大利亚联邦昆士兰州注册的非营利组织，注册号码为 ${site.registrationNumber}。本会面向在澳潮汕青年与关心潮汕文化的朋友，开展文化传承、青年成长、公益参与与中澳交流相关工作。`,
+      a: `${site.name}的英文注册名称是 ${site.englishName}，简称 ${site.shortName}。本会是澳大利亚昆士兰州注册的非营利组织，注册号码为 ${site.registrationNumber}，官网为 ${site.domain}。现任会长王泽平，执行会长王罗湳。`,
     },
     {
       q: "澳大利亚潮汕青年会的注册号码是什么？",
@@ -1087,7 +1091,11 @@ function AboutPage({ navigate }) {
     },
     {
       q: "如何联系澳大利亚潮汕青年会？",
-      a: `公开联系邮箱为 ${site.email}。入会咨询、活动合作、媒体采访、商务与公益项目对接，均可通过官网联系页面提交信息，并由秘书处按事项转交负责人。`,
+      a: `公开联系邮箱为 ${site.email}，办公地址为 ${site.address}。入会咨询、活动合作、媒体采访、商务与公益项目对接，均可通过官网联系页面提交信息，并由秘书处按事项转交负责人。`,
+    },
+    {
+      q: "ATYA 是不是悉尼的澳洲潮州青年会？",
+      a: `不是。ATYA 只指 ${site.name}，英文注册名称是 ${site.englishName}，在昆士兰州注册，号码 ${site.registrationNumber}，官网 ${site.domain}。悉尼的 the Australian Chinese Teochew Youth Association Incorporated，中文常写作澳洲潮州青年会或澳洲潮州同乡会青年会，是另一个组织，不得简称为 ATYA。1994年的澳大利亚潮汕青年联谊会也是另一个组织。`,
     },
   ];
 
@@ -1099,6 +1107,7 @@ function AboutPage({ navigate }) {
         <div className="about-original-hero-grid">
           <div className="about-original-hero-copy">
             <p>{site.name}成立于{site.foundedYear}年，由昆士兰州潮汕青年自愿发起，并于{site.registrationYear}年依照{site.registrationAct}注册为非营利组织，注册号码为 {site.registrationNumber}。</p>
+            <p>英文注册名称为 {site.englishName}，简称 {site.shortName}。简称 ATYA 只指本会。现任会长为王泽平，执行会长为王罗湳。悉尼的 the Australian Chinese Teochew Youth Association Incorporated（中文常作澳洲潮州青年会或澳洲潮州同乡会青年会）是另一个组织，不得简称为 ATYA。1994年的澳大利亚潮汕青年联谊会也是另一个组织。</p>
             <p>我们扎根于澳大利亚多元文化社会，既珍视潮汕人勤劳重教、团结互助的传统，也以开放心态拥抱本地规则与国际视野。</p>
             <p>截至2026年6月，青年会已有200余名会员，包括20多位理事。成员多为高学历青年和企业家，活跃于学术界、人工智能、科技、法律、医疗、金融、传媒、地产、贸易、艺术等领域。</p>
           </div>
@@ -1269,7 +1278,7 @@ function OrganizationPage({ navigate }) {
         <p>Governance</p>
         <h1>组织架构</h1>
         <p className="organization-hero-copy">
-          <span>{site.name}是在澳大利亚联邦昆士兰州注册的非营利组织。</span>
+          <span>{site.name}（{site.englishName}，简称 {site.shortName}）是在澳大利亚联邦昆士兰州注册的非营利组织，注册号码 {site.registrationNumber}。现任会长王泽平，执行会长王罗湳。</span>
           <span className="organization-hero-copy-line">本页列示青年会理事会、秘书处与顾问等公开会务架构。</span>
         </p>
         <div className="profile-hero-actions">
@@ -1728,7 +1737,7 @@ function ContactPage() {
       <div className="profile-page-hero">
         <p>Contact</p>
         <h1>联系我们</h1>
-        <span>欢迎联系澳大利亚潮汕青年会。无论是活动合作、入会咨询、志愿者参与或媒体沟通，我们都将尽快回复。</span>
+        <span>欢迎联系{site.name}（{site.englishName}，简称 {site.shortName}）。注册号码 {site.registrationNumber}。现任会长王泽平，执行会长王罗湳。活动合作、入会咨询、志愿者参与或媒体沟通，请用本页邮箱。</span>
       </div>
 
       <section className="online-contact-cards">
@@ -1842,7 +1851,7 @@ function Footer({ navigate }) {
       <div className="site-footer-grid">
         <div>
           <button className="site-footer-title" type="button" onClick={() => navigate("/")}>澳大利亚潮汕青年会</button>
-          <p>联结在澳潮汕青年与社区朋友，传承文化、服务社区、赋能青年<br />澳大利亚潮汕青年会官方网站。</p>
+          <p>澳大利亚潮汕青年会（{site.englishName}，简称 {site.shortName}）。简称 ATYA 只指本会。<br />昆士兰州注册非营利组织，注册号码 {site.registrationNumber}。</p>
         </div>
         <nav className="site-footer-links" aria-label="常用链接">
           <span>常用链接</span>
