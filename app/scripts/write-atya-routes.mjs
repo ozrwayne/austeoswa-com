@@ -135,7 +135,7 @@ const routes = [
   {
     path: "/news/9",
     title: "本会代表参访昆州警察总部",
-    description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）代表参访昆州警察总部与昆士兰警察博物馆。华人警讯原文报道，Sydney Today 于2025年11月12日转载。",
+    description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）代表参访昆州警察总部与昆士兰警察博物馆。Sydney Today 于2025年11月12日报道。",
     priority: "0.7",
     changefreq: "yearly",
   },
@@ -696,12 +696,11 @@ const routeJsonLd = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       headline: "本会代表参访昆州警察总部",
-      description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）代表参访昆州警察总部与昆士兰警察博物馆。华人警讯原文报道，Sydney Today 于2025年11月12日转载。",
+      description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）代表参访昆州警察总部与昆士兰警察博物馆。Sydney Today 于2025年11月12日报道。",
       url: canonicalUrl("/news/9"),
       datePublished: "2025-11-10",
       image: `${siteUrl}/assets/qps-visit-20251110.webp`,
       citation: [
-        "https://mp.weixin.qq.com/s/V85L87svyus6dp3eFe7Btw",
         "https://www.sydneytoday.com/content-1025573049575001",
       ],
       inLanguage: "zh-CN",
