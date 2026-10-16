@@ -315,10 +315,10 @@ const articles = [
     date: "2025年11月10日",
     image: articleImages.article9,
     coverPosition: "faces",
-    title: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访",
+    title: "本会代表参访昆州警察总部",
     summary:
-      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。",
-    source: "昆士兰华人警讯 / Sydney Today",
+      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，ATYA）代表参访昆州警察总部与昆士兰警察博物馆。",
+    source: "华人警讯 / Sydney Today",
   },
 ];
 
@@ -602,12 +602,12 @@ const originalArticlePages = {
   },
   "9": {
     image: articleImages.article9,
-    imageAlt: "澳大利亚潮汕青年会成员与昆士兰警务处人员在警察总部合影",
+    imageAlt: "澳大利亚潮汕青年会代表与昆士兰警务处人员在警察总部合影",
     imagePosition: "faces",
-    title: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访",
+    title: "本会代表参访昆州警察总部",
     date: "2025年11月10日",
     intro:
-      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）成员代表到访昆士兰警察总部（Queensland Police Service Headquarters）和昆士兰警察博物馆。",
+      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）代表到访昆州警察总部（Queensland Police Service Headquarters）和昆士兰警察博物馆。",
     sections: [
       {
         title: "总部与博物馆",
@@ -622,7 +622,7 @@ const originalArticlePages = {
       {
         title: "媒体报道",
         body:
-          "昆士兰华人警讯报道了这次参访。Sydney Today 于2025年11月12日转载，全文见 https://www.sydneytoday.com/content-1025573049575001 。",
+          "本会代表参访昆州警察总部一事，由华人警讯原文报道（https://mp.weixin.qq.com/s/V85L87svyus6dp3eFe7Btw ），Sydney Today 于2025年11月12日转载（https://www.sydneytoday.com/content-1025573049575001 ）。",
       },
     ],
   },
