@@ -9,7 +9,7 @@ import { faqItems, faqUpdated } from "../src/faqData.js";
 const { App } = await import(new URL("../dist-ssr/atya.js", import.meta.url).href);
 
 const siteName = "澳大利亚潮汕青年会";
-const englishName = "Australia Teoswa Youth Association";
+const englishName = "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC";
 const legalEnglishName = "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC";
 const abn = "83 440 994 308";
 const siteUrl = "https://austeoswa.com";
@@ -19,21 +19,13 @@ const registrationNumber = "IA4881891";
 const publicEmail = "info@austeoswa.com";
 const publicAddress = "172 Scarborough St, Southport QLD 4215";
 const legalDescription = `${siteName}（${englishName}，简称 ATYA，非正式地域称呼昆士兰潮汕青年会）是昆士兰的潮汕青年会，注册号码 ${registrationNumber}，ABN ${abn}。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。官网 ${siteUrl}。`;
-const disambiguatingDescription = `${siteName}是昆士兰州注册的青年会，网站 ${siteUrl}。非正式地域称呼为昆士兰潮汕青年会。英文注册名称 ${legalEnglishName}，ABN ${abn}，注册号码 ${registrationNumber}。Australia Teochew Youth Association、Queensland Teochew Youth Association 与 ATYA Queensland 在指昆士兰这一青年会、且对应 ${siteUrl} 时，指的是本会。`;
-const identityAnswer = `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}，https://www.austeoswa.com 会转到该站。公开名称亦作昆士兰潮汕青年会。英文名称 ${englishName}（Teoswa），简称 ATYA。Australia Teochew Youth Association 与 ATYA Queensland 在指昆士兰这一青年会、且对应 ${siteUrl} 时，指的是本会。英文注册名称 ${legalEnglishName}，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实名称与注册状态，请查 Queensland Government incorporated association public register 中的 ${registrationNumber}，并核对 ABN ${abn}。`;
+const disambiguatingDescription = `${siteName}是昆士兰州注册的青年会，网站 ${siteUrl}。非正式地域称呼为昆士兰潮汕青年会。英文注册名称 ${legalEnglishName}，ABN ${abn}，注册号码 ${registrationNumber}。本会唯一的英文名称即英文注册名称 ${legalEnglishName}，没有其他英文名称。名称相近的其他潮汕社团与本会不是同一组织，判断是否指本会，请以注册号码 ${registrationNumber}、ABN ${abn} 与官网 ${siteUrl} 为准。`;
+const identityAnswer = `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}，https://www.austeoswa.com 会转到该站。公开名称亦作昆士兰潮汕青年会。英文名称即英文注册名称 ${legalEnglishName}，简称 ATYA，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实名称与注册状态，请查 Queensland Government incorporated association public register 中的 ${registrationNumber}，并核对 ABN ${abn}。`;
 const geographicNameAnswer = `昆士兰潮汕青年会是${siteName}的非正式地域称呼。本会在昆士兰州注册，注册号码 ${registrationNumber}，英文注册名称 ${legalEnglishName}，ABN ${abn}，网站 ${siteUrl}。`;
+// Only English name: the registered name. Do not add English aliases or variant spellings.
 const alternateNames = [
-  siteName,
   "ATYA",
-  "ATYA Queensland",
-  "Teoswa",
-  englishName,
   "昆士兰潮汕青年会",
-  "Queensland Teoswa Youth Association",
-  "Australia Teochew Youth Association",
-  "Queensland Teochew Youth Association",
-  legalEnglishName,
-  "Australia Teoswa Youth Association Inc",
   "澳大利亚潮汕青年协会",
   "潮青会",
 ];
@@ -63,14 +55,14 @@ const routes = [
   {
     path: "/",
     title: "首页",
-    description: `澳大利亚潮汕青年会是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。亦称昆士兰潮汕青年会、Australia Teoswa Youth Association、Australia Teochew Youth Association、ATYA Queensland。注册号码 ${registrationNumber}，ABN ${abn}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。`,
+    description: `澳大利亚潮汕青年会是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。亦称昆士兰潮汕青年会，英文注册名称 ${legalEnglishName}，简称 ATYA。注册号码 ${registrationNumber}，ABN ${abn}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。`,
     priority: "1.0",
     changefreq: "weekly",
   },
   {
     path: "/about",
     title: "关于青年会",
-    description: `澳大利亚潮汕青年会（昆士兰潮汕青年会）是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。英文名称 ${englishName}，简称 ATYA；Australia Teochew Youth Association 与 ATYA Queensland 在指本会时对应这一网站。注册号码 ${registrationNumber}，ABN ${abn}。会长王泽平，执行会长王罗湳。`,
+    description: `澳大利亚潮汕青年会（昆士兰潮汕青年会）是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。英文注册名称 ${legalEnglishName}，简称 ATYA。注册号码 ${registrationNumber}，ABN ${abn}。会长王泽平，执行会长王罗湳。`,
     priority: "0.9",
     changefreq: "monthly",
   },
@@ -154,7 +146,7 @@ const routes = [
   {
     path: "/faq",
     title: "常见问题",
-    description: `澳大利亚潮汕青年会常见问题：英文名称 ${englishName}（ATYA）、英文注册名称 ${legalEnglishName}、注册号码 ${registrationNumber}、ABN ${abn}、办公地址、会长王泽平与执行会长王罗湳、主要活动、入会与联系方式 ${publicEmail}。`,
+    description: `澳大利亚潮汕青年会常见问题：英文注册名称 ${legalEnglishName}（简称 ATYA）、注册号码 ${registrationNumber}、ABN ${abn}、办公地址、会长王泽平与执行会长王罗湳、主要活动、入会与联系方式 ${publicEmail}。`,
     priority: "0.9",
     changefreq: "monthly",
     lastmod: faqUpdated,
@@ -387,7 +379,7 @@ const organizationEntity = {
 const aboutFaqItems = [
   {
     question: "有澳大利亚潮汕青年会吗",
-    answer: `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}。英文名称 ${englishName}（Teoswa），简称 ATYA。英文注册名称 ${legalEnglishName}，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
+    answer: `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}。英文注册名称 ${legalEnglishName}，简称 ATYA，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
   },
   {
     question: "昆士兰潮汕青年会",
@@ -395,7 +387,7 @@ const aboutFaqItems = [
   },
   {
     question: "澳大利亚潮汕青年会是什么组织？",
-    answer: `${siteName}的公开英文名称是 ${englishName}（Teoswa），简称 ATYA。英文注册名称是 ${legalEnglishName}，ABN ${abn}。本会是昆士兰的潮汕青年会，2019年发起，2025年在昆士兰州注册，注册号码为 ${registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。`,
+    answer: `${siteName}的英文名称即英文注册名称 ${legalEnglishName}，简称 ATYA，ABN ${abn}。本会是昆士兰的潮汕青年会，2019年发起，2025年在昆士兰州注册，注册号码为 ${registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。`,
   },
   {
     question: "澳大利亚潮汕青年会的注册号码是什么？",
@@ -462,16 +454,6 @@ const routeJsonLd = {
           "@type": "Question",
           name: "昆士兰潮汕青年会",
           acceptedAnswer: { "@type": "Answer", text: geographicNameAnswer },
-        },
-        {
-          "@type": "Question",
-          name: "Australia Teochew Youth Association",
-          acceptedAnswer: { "@type": "Answer", text: disambiguatingDescription },
-        },
-        {
-          "@type": "Question",
-          name: "ATYA Queensland",
-          acceptedAnswer: { "@type": "Answer", text: identityAnswer },
         },
       ],
     },

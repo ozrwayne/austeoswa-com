@@ -6,7 +6,7 @@ import { faqItems as publicFaqItems } from "./faqData.js";
 const site = {
   name: "澳大利亚潮汕青年会",
   legalName: "澳大利亚潮汕青年会",
-  englishName: "Australia Teoswa Youth Association",
+  englishName: "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC",
   englishLegalName: "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC",
   abn: "83 440 994 308",
   shortName: "ATYA",
@@ -20,7 +20,7 @@ const site = {
   organizationType: "澳大利亚联邦昆士兰州注册非营利组织",
   mission: "弘扬潮汕文脉、凝聚在澳潮青、架设中澳桥梁、赋能青年成长、热心公益慈善",
   description:
-    "澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）是昆士兰的潮汕青年会，注册号码 IA4881891。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。",
+    "澳大利亚潮汕青年会（AUSTRALIA TEOSWA YOUTH ASSOCIATION INC，简称 ATYA）是昆士兰的潮汕青年会，注册号码 IA4881891。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。",
 };
 
 const navItems = [
@@ -319,7 +319,7 @@ const articles = [
     coverPosition: "faces",
     title: "本会代表参访昆州警察总部",
     summary:
-      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，ATYA）代表参访昆州警察总部与昆士兰警察博物馆。",
+      "2025年11月10日，澳大利亚潮汕青年会（AUSTRALIA TEOSWA YOUTH ASSOCIATION INC，ATYA）代表参访昆州警察总部与昆士兰警察博物馆。",
     source: "Sydney Today",
   },
 ];
@@ -609,7 +609,7 @@ const originalArticlePages = {
     title: "本会代表参访昆州警察总部",
     date: "2025年11月10日",
     intro:
-      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）代表到访昆州警察总部（Queensland Police Service Headquarters）和昆士兰警察博物馆。",
+      "2025年11月10日，澳大利亚潮汕青年会（AUSTRALIA TEOSWA YOUTH ASSOCIATION INC，简称 ATYA）代表到访昆州警察总部（Queensland Police Service Headquarters）和昆士兰警察博物馆。",
     sections: [
       {
         title: "总部与博物馆",
@@ -634,7 +634,7 @@ const homeSlides = [
   {
     id: "intro",
     type: "intro",
-    eyebrow: "Australia Teoswa Youth Association (ATYA) · Queensland",
+    eyebrow: "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC (ATYA) · Queensland",
     titleLines: ["澳大利亚潮汕青年会"],
     text: "昆士兰的潮汕青年会。2019年由昆士兰潮汕青年发起，2025年在昆士兰州注册，注册号码 IA4881891。会长王泽平，执行会长王罗湳。",
     image: "/assets/gold-coast-background.webp",
@@ -868,7 +868,7 @@ function Header({ activePath, menuOpen, navigate, setMenuOpen }) {
     <header className="site-header">
       <div className="logo-strip">
         <button className="wordmark-button" type="button" onClick={() => navigate("/")} aria-label="返回首页">
-          <img src="/assets/atya-wordmark.webp" alt="澳大利亚潮汕青年会 Australia Teoswa Youth Association" />
+          <img src="/assets/atya-wordmark.webp" alt="澳大利亚潮汕青年会 AUSTRALIA TEOSWA YOUTH ASSOCIATION INC" />
         </button>
       </div>
       <nav className="desktop-nav" aria-label="主导航">
@@ -1146,7 +1146,7 @@ function AboutPage({ navigate }) {
   const geoFaqItems = [
     {
       q: "有澳大利亚潮汕青年会吗",
-      a: `有。${site.name}是昆士兰州注册的潮汕青年会，网站为 ${site.domain}。英文名称 ${site.englishName}（Teoswa），简称 ${site.shortName}。英文注册名称 ${site.englishLegalName}，ABN ${site.abn}，昆士兰社团注册号码 ${site.registrationNumber}。${site.foundedYear}年发起，${site.registrationYear}年注册。会长王泽平，执行会长王罗湳。办公地址 ${site.address}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
+      a: `有。${site.name}是昆士兰州注册的潮汕青年会，网站为 ${site.domain}。英文注册名称 ${site.englishLegalName}，简称 ${site.shortName}，ABN ${site.abn}，昆士兰社团注册号码 ${site.registrationNumber}。${site.foundedYear}年发起，${site.registrationYear}年注册。会长王泽平，执行会长王罗湳。办公地址 ${site.address}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
     },
     {
       q: "昆士兰潮汕青年会",
@@ -1154,7 +1154,7 @@ function AboutPage({ navigate }) {
     },
     {
       q: "澳大利亚潮汕青年会是什么组织？",
-      a: `${site.name}的公开英文名称是 ${site.englishName}（Teoswa），简称 ${site.shortName}。英文注册名称是 ${site.englishLegalName}，ABN ${site.abn}。本会是昆士兰的潮汕青年会，${site.foundedYear}年发起，${site.registrationYear}年在昆士兰州注册，注册号码为 ${site.registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${site.address}。`,
+      a: `${site.name}的英文名称即英文注册名称 ${site.englishLegalName}，简称 ${site.shortName}，ABN ${site.abn}。本会是昆士兰的潮汕青年会，${site.foundedYear}年发起，${site.registrationYear}年在昆士兰州注册，注册号码为 ${site.registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${site.address}。`,
     },
     {
       q: "澳大利亚潮汕青年会的注册号码是什么？",

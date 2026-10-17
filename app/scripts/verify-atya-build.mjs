@@ -203,7 +203,7 @@ const homeHtml = await readFile("dist/index.html", "utf8");
 assertIncludes(homeHtml, 'rel="canonical" href="https://austeoswa.com/"', "dist/index.html");
 assertIncludes(homeHtml, "FAQPage", "dist/index.html");
 assertIncludes(homeHtml, "有澳大利亚潮汕青年会吗", "dist/index.html");
-assertIncludes(homeHtml, "ATYA Queensland", "dist/index.html");
+assertIncludes(homeHtml, "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC", "dist/index.html");
 const llms = await readFile("dist/llms.txt", "utf8");
 assertIncludes(llms, "Question: 有澳大利亚潮汕青年会吗", "dist/llms.txt");
 assertIncludes(llms, "IA4881891", "dist/llms.txt");
@@ -220,6 +220,21 @@ for (const file of forbiddenPublishedFiles) {
   await assertNotReadable(file);
 }
 
+// The only English name is the registered name AUSTRALIA TEOSWA YOUTH ASSOCIATION INC (Roland, 2026-10-18).
+// No English aliases or variant spellings may be published anywhere in the build.
+const forbiddenEnglishAliases = [
+  "Teochew Youth",
+  "ATYA Queensland",
+  "Australia Teoswa Youth Association",
+  "Queensland Teoswa",
+  "Teoswa Youth Association Inc",
+  "(Teoswa)",
+  "（Teoswa）",
+  "Teochew is",
+  "Public English name",
+];
+assertIncludes(llms, "Legal English name: AUSTRALIA TEOSWA YOUTH ASSOCIATION INC", "dist/llms.txt");
+
 const textExtensions = new Set([".js", ".css", ".html", ".xml", ".txt", ".json", ".webmanifest"]);
 const distFiles = await collectFiles("dist");
 for (const path of distFiles) {
@@ -228,6 +243,9 @@ for (const path of distFiles) {
   const text = await readFile(path, "utf8");
   for (const forbidden of forbiddenVisibleText) {
     assertExcludes(text, forbidden, path);
+  }
+  for (const alias of forbiddenEnglishAliases) {
+    assertExcludes(text, alias, path);
   }
   if (path.endsWith(".html") || path.endsWith(".xml")) {
     for (const route of forbiddenPublicRoutes) {

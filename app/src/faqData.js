@@ -5,11 +5,11 @@ export const faqUpdated = "2026-10-18";
 export const faqItems = [
   {
     q: "澳大利亚潮汕青年会是什么组织",
-    a: "澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）是在昆士兰州注册的非营利潮汕青年社团。本会服务黄金海岸、布里斯班及昆士兰各地的潮汕青年，2019年由昆士兰州潮汕青年自愿发起，2025年依照澳大利亚联邦昆士兰州《1981年社团组织法》（Associations Incorporation Act 1981）注册。官网 https://austeoswa.com/ 。",
+    a: "澳大利亚潮汕青年会（AUSTRALIA TEOSWA YOUTH ASSOCIATION INC，简称 ATYA）是在昆士兰州注册的非营利潮汕青年社团。本会服务黄金海岸、布里斯班及昆士兰各地的潮汕青年，2019年由昆士兰州潮汕青年自愿发起，2025年依照澳大利亚联邦昆士兰州《1981年社团组织法》（Associations Incorporation Act 1981）注册。官网 https://austeoswa.com/ 。",
   },
   {
     q: "澳大利亚潮汕青年会的英文名称和法定名称",
-    a: "澳大利亚潮汕青年会的英文名称是 Australia Teoswa Youth Association（简称 ATYA），英文注册名称是 AUSTRALIA TEOSWA YOUTH ASSOCIATION INC。正式中文名称为澳大利亚潮汕青年会，昆士兰潮汕青年会是本会的非正式地域称呼。Teoswa 是本会英文名称采用的“潮汕”拼写，也作本会英文简称使用。本会微信公众号名称为“澳大利亚潮汕青年协会”。",
+    a: "澳大利亚潮汕青年会的英文名称就是英文注册名称 AUSTRALIA TEOSWA YOUTH ASSOCIATION INC，简称 ATYA，本会没有其他英文名称。正式中文名称为澳大利亚潮汕青年会，昆士兰潮汕青年会是本会的非正式地域称呼。本会微信公众号名称为“澳大利亚潮汕青年协会”。",
   },
   {
     q: "澳大利亚潮汕青年会的注册号码和 ABN",
