@@ -1,5 +1,6 @@
 import { access, readFile, readdir, stat } from "node:fs/promises";
 import { constants } from "node:fs";
+import { faqItems } from "../src/faqData.js";
 
 const routes = [
   "/",
@@ -19,6 +20,7 @@ const routes = [
   "/business",
   "/resources",
   "/contact",
+  "/faq",
 ];
 
 const aliasRoutes = [
@@ -138,7 +140,36 @@ for (const route of [...routes, ...aliasRoutes]) {
   assertIncludes(html, 'type="application/ld+json"', path);
   assertIncludes(html, '<div id="root">', path);
   assertIncludes(html, "<noscript>", path);
+  const root = html.match(/<div id="root">([\s\S]*?)<\/div>\s*<noscript>/)?.[1] || "";
+  const rootText = root.replace(/<[^>]+>/g, " ").replace(/\s+/g, "");
+  if (rootText.length < 200) throw new Error(`${path} has no prerendered body text in #root (${rootText.length} chars)`);
+  if ((html.match(/<h1[\s>]/g) || []).length !== 1) throw new Error(`${path} must contain exactly one <h1>`);
+  for (const target of ["/about/", "/organization/", "/contact/", "/news/", "/faq/"]) {
+    assertIncludes(root, `href="${target}"`, `${path} prerendered links`);
+  }
+  for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    JSON.parse(match[1]);
+  }
 }
+
+const newsHtml = await readFile("dist/news/index.html", "utf8");
+for (let id = 1; id <= 9; id += 1) {
+  assertIncludes(newsHtml, `href="/news/${id}/"`, "dist/news/index.html prerendered article links");
+}
+
+const faqHtml = await readFile("dist/faq/index.html", "utf8");
+assertIncludes(faqHtml, '"@type":"FAQPage"', "dist/faq/index.html");
+for (const item of faqItems) {
+  if (/[。？?]$/.test(item.q)) throw new Error(`FAQ heading should be a phrase without trailing punctuation: ${item.q}`);
+  assertIncludes(faqHtml, `<h2>${item.q}</h2>`, "dist/faq/index.html visible FAQ");
+  assertIncludes(faqHtml, JSON.stringify(item.a), "dist/faq/index.html FAQPage JSON-LD");
+}
+
+const robots = await readFile("dist/robots.txt", "utf8");
+for (const bot of ["GPTBot", "OAI-SearchBot", "ClaudeBot", "PerplexityBot", "Google-Extended"]) {
+  assertIncludes(robots, `User-agent: ${bot}\nAllow: /`, "dist/robots.txt");
+}
+assertIncludes(robots, "Sitemap: https://austeoswa.com/sitemap.xml", "dist/robots.txt");
 
 const notFound = await readFile("dist/404.html", "utf8");
 assertIncludes(notFound, 'content="noindex, follow"', "dist/404.html");
@@ -177,6 +208,9 @@ const llms = await readFile("dist/llms.txt", "utf8");
 assertIncludes(llms, "Question: 有澳大利亚潮汕青年会吗", "dist/llms.txt");
 assertIncludes(llms, "IA4881891", "dist/llms.txt");
 assertIncludes(llms, "83 440 994 308", "dist/llms.txt");
+if (!llms.startsWith("# ") || !llms.split("\n")[2]?.startsWith("> ")) throw new Error("dist/llms.txt must start with '# name' then a '> summary' line");
+for (const item of faqItems) assertIncludes(llms, `Question: ${item.q}`, "dist/llms.txt");
+assertIncludes(llms, "https://austeoswa.com/news/9/", "dist/llms.txt");
 
 for (const file of requiredFiles) {
   await assertReadable(file);
