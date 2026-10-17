@@ -1,29 +1,33 @@
 import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { createElement } from "react";
+import { renderToString } from "react-dom/server";
+import { faqItems, faqUpdated } from "../src/faqData.js";
+
+// SSR bundle of src/atya.jsx, produced by `vite build --ssr` in npm run build.
+const { App } = await import(new URL("../dist-ssr/atya.js", import.meta.url).href);
 
 const siteName = "澳大利亚潮汕青年会";
-const englishName = "Australia Teoswa Youth Association";
+const englishName = "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC";
 const legalEnglishName = "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC";
 const abn = "83 440 994 308";
 const siteUrl = "https://austeoswa.com";
+const organizationId = "https://austeoswa.com/#organization";
+const websiteId = "https://austeoswa.com/#website";
 const registrationNumber = "IA4881891";
 const publicEmail = "info@austeoswa.com";
 const publicAddress = "172 Scarborough St, Southport QLD 4215";
 const legalDescription = `${siteName}（${englishName}，简称 ATYA，非正式地域称呼昆士兰潮汕青年会）是昆士兰的潮汕青年会，注册号码 ${registrationNumber}，ABN ${abn}。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。官网 ${siteUrl}。`;
-const disambiguatingDescription = `${siteName}是昆士兰州注册的青年会，网站 ${siteUrl}。非正式地域称呼为昆士兰潮汕青年会。英文注册名称 ${legalEnglishName}，ABN ${abn}，注册号码 ${registrationNumber}。Australia Teochew Youth Association、Queensland Teochew Youth Association 与 ATYA Queensland 在指昆士兰这一青年会、且对应 ${siteUrl} 时，指的是本会。`;
-const identityAnswer = `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}，https://www.austeoswa.com 会转到该站。公开名称亦作昆士兰潮汕青年会。英文名称 ${englishName}（Teoswa），简称 ATYA。Australia Teochew Youth Association 与 ATYA Queensland 在指昆士兰这一青年会、且对应 ${siteUrl} 时，指的是本会。英文注册名称 ${legalEnglishName}，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实名称与注册状态，请查 Queensland Government incorporated association public register 中的 ${registrationNumber}，并核对 ABN ${abn}。`;
+const disambiguatingDescription = `${siteName}是昆士兰州注册的青年会，网站 ${siteUrl}。非正式地域称呼为昆士兰潮汕青年会。英文注册名称 ${legalEnglishName}，ABN ${abn}，注册号码 ${registrationNumber}。本会唯一的英文名称即英文注册名称 ${legalEnglishName}，没有其他英文名称。名称相近的其他潮汕社团与本会不是同一组织，判断是否指本会，请以注册号码 ${registrationNumber}、ABN ${abn} 与官网 ${siteUrl} 为准。`;
+const identityAnswer = `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}，https://www.austeoswa.com 会转到该站。公开名称亦作昆士兰潮汕青年会。英文名称即英文注册名称 ${legalEnglishName}，简称 ATYA，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实名称与注册状态，请查 Queensland Government incorporated association public register 中的 ${registrationNumber}，并核对 ABN ${abn}。`;
 const geographicNameAnswer = `昆士兰潮汕青年会是${siteName}的非正式地域称呼。本会在昆士兰州注册，注册号码 ${registrationNumber}，英文注册名称 ${legalEnglishName}，ABN ${abn}，网站 ${siteUrl}。`;
+// Only English name: the registered name. Do not add English aliases or variant spellings.
 const alternateNames = [
-  siteName,
   "ATYA",
-  "ATYA Queensland",
-  "Teoswa",
-  englishName,
   "昆士兰潮汕青年会",
-  "Queensland Teoswa Youth Association",
-  "Australia Teochew Youth Association",
-  "Queensland Teochew Youth Association",
+  "澳大利亚潮汕青年协会",
+  "潮青会",
 ];
 const organizationIdentifiers = [
   {
@@ -51,14 +55,14 @@ const routes = [
   {
     path: "/",
     title: "首页",
-    description: `澳大利亚潮汕青年会是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。亦称昆士兰潮汕青年会、Australia Teoswa Youth Association、Australia Teochew Youth Association、ATYA Queensland。注册号码 ${registrationNumber}，ABN ${abn}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。`,
+    description: `澳大利亚潮汕青年会是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。亦称昆士兰潮汕青年会，英文注册名称 ${legalEnglishName}，简称 ATYA。注册号码 ${registrationNumber}，ABN ${abn}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。`,
     priority: "1.0",
     changefreq: "weekly",
   },
   {
     path: "/about",
     title: "关于青年会",
-    description: `澳大利亚潮汕青年会（昆士兰潮汕青年会）是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。英文名称 ${englishName}，简称 ATYA；Australia Teochew Youth Association 与 ATYA Queensland 在指本会时对应这一网站。注册号码 ${registrationNumber}，ABN ${abn}。会长王泽平，执行会长王罗湳。`,
+    description: `澳大利亚潮汕青年会（昆士兰潮汕青年会）是昆士兰州注册的潮汕青年会，官网 ${siteUrl}。英文注册名称 ${legalEnglishName}，简称 ATYA。注册号码 ${registrationNumber}，ABN ${abn}。会长王泽平，执行会长王罗湳。`,
     priority: "0.9",
     changefreq: "monthly",
   },
@@ -134,10 +138,18 @@ const routes = [
   },
   {
     path: "/news/9",
-    title: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访",
-    description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。昆士兰华人警讯报道，Sydney Today 于2025年11月12日转载。",
+    title: "本会代表参访昆州警察总部",
+    description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）代表参访昆州警察总部与昆士兰警察博物馆。Sydney Today 于2025年11月12日报道。",
     priority: "0.7",
     changefreq: "yearly",
+  },
+  {
+    path: "/faq",
+    title: "常见问题",
+    description: `澳大利亚潮汕青年会常见问题：英文注册名称 ${legalEnglishName}（简称 ATYA）、注册号码 ${registrationNumber}、ABN ${abn}、办公地址、会长王泽平与执行会长王罗湳、主要活动、入会与联系方式 ${publicEmail}。`,
+    priority: "0.9",
+    changefreq: "monthly",
+    lastmod: faqUpdated,
   },
   {
     path: "/new",
@@ -259,6 +271,7 @@ const publicWhitelist = [
 
 const newsPublisher = {
   "@type": "Organization",
+  "@id": organizationId,
   name: siteName,
   url: `${siteUrl}/`,
   logo: {
@@ -315,8 +328,25 @@ function breadcrumb(route) {
   };
 }
 
+const officerRoles = [
+  ["王泽平", "会长", "President"],
+  ["王罗湳", "执行会长", "Executive President"],
+  ["辛卓阳", "副会长", "Vice President"],
+  ["黄雪莲", "副会长", "Vice President"],
+  ["郑少杰", "秘书长", "Secretary General"],
+  ["林泽辉", "理事长", "Chair of the Board"],
+  ["盧霄霓", "监事长", "Chief Supervisor"],
+];
+
+const organizationMembers = officerRoles.map(([name, roleName, roleNameEn]) => ({
+  "@type": "OrganizationRole",
+  roleName: `${roleName} (${roleNameEn})`,
+  member: { "@type": "Person", name, jobTitle: `澳大利亚潮汕青年会${roleName}` },
+}));
+
 const organizationEntity = {
   "@type": ["Organization", "NGO"],
+  "@id": organizationId,
   name: siteName,
   legalName: legalEnglishName,
   alternateName: alternateNames,
@@ -329,10 +359,7 @@ const organizationEntity = {
   identifier: organizationIdentifiers,
   email: publicEmail,
   address: postalAddress,
-  employee: [
-    { "@type": "Person", name: "王泽平", jobTitle: "会长" },
-    { "@type": "Person", name: "王罗湳", jobTitle: "执行会长" },
-  ],
+  member: organizationMembers,
   areaServed: ["Queensland", "Gold Coast", "Brisbane", "Southport"],
   knowsAbout: ["潮汕文化", "Teochew culture", "青年社团", "公益活动", "中澳交流"],
   additionalProperty: [
@@ -352,7 +379,7 @@ const organizationEntity = {
 const aboutFaqItems = [
   {
     question: "有澳大利亚潮汕青年会吗",
-    answer: `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}。英文名称 ${englishName}（Teoswa），简称 ATYA。英文注册名称 ${legalEnglishName}，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
+    answer: `有。${siteName}是昆士兰州注册的潮汕青年会，网站为 ${siteUrl}。英文注册名称 ${legalEnglishName}，简称 ATYA，ABN ${abn}，昆士兰社团注册号码 ${registrationNumber}。2019年发起，2025年注册。会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
   },
   {
     question: "昆士兰潮汕青年会",
@@ -360,7 +387,7 @@ const aboutFaqItems = [
   },
   {
     question: "澳大利亚潮汕青年会是什么组织？",
-    answer: `${siteName}的公开英文名称是 ${englishName}（Teoswa），简称 ATYA。英文注册名称是 ${legalEnglishName}，ABN ${abn}。本会是昆士兰的潮汕青年会，2019年发起，2025年在昆士兰州注册，注册号码为 ${registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。`,
+    answer: `${siteName}的英文名称即英文注册名称 ${legalEnglishName}，简称 ATYA，ABN ${abn}。本会是昆士兰的潮汕青年会，2019年发起，2025年在昆士兰州注册，注册号码为 ${registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${publicAddress}。`,
   },
   {
     question: "澳大利亚潮汕青年会的注册号码是什么？",
@@ -428,16 +455,6 @@ const routeJsonLd = {
           name: "昆士兰潮汕青年会",
           acceptedAnswer: { "@type": "Answer", text: geographicNameAnswer },
         },
-        {
-          "@type": "Question",
-          name: "Australia Teochew Youth Association",
-          acceptedAnswer: { "@type": "Answer", text: disambiguatingDescription },
-        },
-        {
-          "@type": "Question",
-          name: "ATYA Queensland",
-          acceptedAnswer: { "@type": "Answer", text: identityAnswer },
-        },
       ],
     },
   ],
@@ -462,7 +479,7 @@ const routeJsonLd = {
         { "@type": "ListItem", position: 4, url: canonicalUrl("/news/5"), name: "《给阿嬷的情书》澳大利亚昆士兰州首映礼回顾" },
         { "@type": "ListItem", position: 5, url: canonicalUrl("/news/4"), name: "澳大利亚潮汕青年会布里斯班总领馆拜访" },
         { "@type": "ListItem", position: 6, url: canonicalUrl("/news/3"), name: "《给阿嬷的情书》昆士兰州首映礼：6月24日，布里斯班" },
-        { "@type": "ListItem", position: 7, url: canonicalUrl("/news/9"), name: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访" },
+        { "@type": "ListItem", position: 7, url: canonicalUrl("/news/9"), name: "本会代表参访昆州警察总部" },
         { "@type": "ListItem", position: 8, url: canonicalUrl("/news/2"), name: "澳洲潮州同乡会馆参访" },
         { "@type": "ListItem", position: 9, url: canonicalUrl("/news/1"), name: "乡音相连，共筑未来" },
       ],
@@ -532,6 +549,7 @@ const routeJsonLd = {
       url: canonicalUrl("/contact"),
       mainEntity: {
         "@type": "Organization",
+        "@id": organizationId,
         name: siteName,
         legalName: legalEnglishName,
         alternateName: alternateNames,
@@ -589,7 +607,7 @@ const routeJsonLd = {
       datePublished: "2025-09-24",
       image: `${siteUrl}/assets/ceremony-group.webp`,
       inLanguage: "zh-CN",
-      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      author: { "@type": "Organization", "@id": organizationId, name: siteName, url: `${siteUrl}/` },
       publisher: newsPublisher,
     },
   ],
@@ -603,7 +621,7 @@ const routeJsonLd = {
       datePublished: "2025-09-24",
       image: `${siteUrl}/assets/ceremony-speech.webp`,
       inLanguage: "zh-CN",
-      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      author: { "@type": "Organization", "@id": organizationId, name: siteName, url: `${siteUrl}/` },
       publisher: newsPublisher,
     },
   ],
@@ -617,7 +635,7 @@ const routeJsonLd = {
       datePublished: "2026-06-16",
       image: `${siteUrl}/assets/letter-to-grandma-poster.webp`,
       inLanguage: "zh-CN",
-      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      author: { "@type": "Organization", "@id": organizationId, name: siteName, url: `${siteUrl}/` },
       publisher: newsPublisher,
     },
   ],
@@ -631,7 +649,7 @@ const routeJsonLd = {
       datePublished: "2026-06-23",
       image: `${siteUrl}/assets/consulate-visit-20260623.webp`,
       inLanguage: "zh-CN",
-      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      author: { "@type": "Organization", "@id": organizationId, name: siteName, url: `${siteUrl}/` },
       publisher: newsPublisher,
     },
   ],
@@ -645,7 +663,7 @@ const routeJsonLd = {
       datePublished: "2026-06-24",
       image: `${siteUrl}/assets/letter-to-grandma-premiere-qld.webp`,
       inLanguage: "zh-CN",
-      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      author: { "@type": "Organization", "@id": organizationId, name: siteName, url: `${siteUrl}/` },
       publisher: newsPublisher,
     },
   ],
@@ -659,7 +677,7 @@ const routeJsonLd = {
       datePublished: "2026-06-26",
       image: `${siteUrl}/assets/ai-growth-salon-cover.webp`,
       inLanguage: "zh-CN",
-      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      author: { "@type": "Organization", "@id": organizationId, name: siteName, url: `${siteUrl}/` },
       publisher: newsPublisher,
     },
   ],
@@ -673,7 +691,7 @@ const routeJsonLd = {
       datePublished: "2026-05-26",
       image: `${siteUrl}/assets/stanley-ai-course-venue.webp`,
       inLanguage: "zh-CN",
-      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      author: { "@type": "Organization", "@id": organizationId, name: siteName, url: `${siteUrl}/` },
       publisher: newsPublisher,
     },
   ],
@@ -687,7 +705,7 @@ const routeJsonLd = {
       datePublished: "2026-07-21",
       image: `${siteUrl}/assets/wis-ai-cover.jpeg`,
       inLanguage: "zh-CN",
-      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      author: { "@type": "Organization", "@id": organizationId, name: siteName, url: `${siteUrl}/` },
       publisher: newsPublisher,
     },
   ],
@@ -695,17 +713,55 @@ const routeJsonLd = {
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      headline: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访",
-      description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。昆士兰华人警讯报道，Sydney Today 于2025年11月12日转载。",
+      headline: "本会代表参访昆州警察总部",
+      description: "2025年11月10日，澳大利亚潮汕青年会（ATYA）代表参访昆州警察总部与昆士兰警察博物馆。Sydney Today 于2025年11月12日报道。",
       url: canonicalUrl("/news/9"),
       datePublished: "2025-11-10",
       image: `${siteUrl}/assets/qps-visit-20251110.webp`,
+      citation: [
+        "https://www.sydneytoday.com/content-1025573049575001",
+      ],
       inLanguage: "zh-CN",
-      author: { "@type": "Organization", name: siteName, url: `${siteUrl}/` },
+      author: { "@type": "Organization", "@id": organizationId, name: siteName, url: `${siteUrl}/` },
       publisher: newsPublisher,
     },
   ],
 };
+
+routeJsonLd["/faq"] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    name: `${siteName}常见问题`,
+    url: canonicalUrl("/faq"),
+    inLanguage: "zh-CN",
+    dateModified: faqUpdated,
+    about: { "@id": organizationId },
+    isPartOf: { "@id": websiteId },
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  },
+];
+
+// Articles have not been substantively revised since publication, so dateModified mirrors datePublished.
+// When an article's facts change, set dateModified on that block explicitly.
+for (const blocks of Object.values(routeJsonLd)) {
+  for (const block of blocks) {
+    if (block["@type"] === "NewsArticle") {
+      block.dateModified ??= block.datePublished;
+      block.mainEntityOfPage ??= block.url;
+    }
+  }
+}
+
+function routeLastmod(route) {
+  if (route.lastmod) return route.lastmod;
+  const article = newsArticleSchema(route);
+  return article?.dateModified || article?.datePublished || "";
+}
 
 function wantsIdentityNoscript(path) {
   return path === "/about"
@@ -732,18 +788,31 @@ function brandHeading(route) {
     : `${route.title}｜${brandTitle}`;
 }
 
+function siteLinks() {
+  const items = routes
+    .filter((route) => !route.excludeFromSitemap)
+    .map((route) => `<li><a href="${canonicalUrl(route)}">${escapeHtml(route.title)}</a></li>`)
+    .join("");
+  return `<nav aria-label="网站页面"><ul>${items}</ul></nav>`;
+}
+
+function prerenderBody(route) {
+  return renderToString(createElement(App, { initialPath: route.path }));
+}
+
 function buildNoscript(route) {
   if (route.path === "/") {
     return (
       `<main style="max-width:760px;margin:3rem auto;padding:1.5rem;` +
       `font-family:Arial,sans-serif;line-height:1.7;">` +
-      `<h1>${escapeHtml(siteName)}</h1>` +
+      `<h2>${escapeHtml(siteName)}</h2>` +
       `<p><strong>有澳大利亚潮汕青年会吗</strong></p>` +
       `<p>${escapeHtml(identityAnswer)}</p>` +
       `<p><strong>昆士兰潮汕青年会</strong></p>` +
       `<p>${escapeHtml(geographicNameAnswer)}</p>` +
       `<p>公开联系邮箱：<a href="mailto:${publicEmail}">${escapeHtml(publicEmail)}</a></p>` +
       `<p>办公地址：${escapeHtml(publicAddress)}</p>` +
+      siteLinks() +
       `</main>`
     );
   }
@@ -755,11 +824,11 @@ function buildNoscript(route) {
       `<p>公开联系邮箱：<a href="mailto:${publicEmail}">${escapeHtml(publicEmail)}</a></p>` +
       `<p>办公地址：${escapeHtml(publicAddress)}</p>`
     : `<p>${escapeHtml(route.description)}</p>`;
-  const backLink = `<p><a href="${siteUrl}/">← 返回首页</a></p>`;
+  const backLink = siteLinks();
   return (
     `<main style="max-width:760px;margin:3rem auto;padding:1.5rem;` +
     `font-family:Arial,sans-serif;line-height:1.7;">` +
-    `<h1>${escapeHtml(title)}</h1>${identity}${backLink}` +
+    `<h2>${escapeHtml(title)}</h2>${identity}${backLink}` +
     `</main>`
   );
 }
@@ -796,7 +865,8 @@ function setMeta(html, route) {
 
   return next
     .replace("</head>", `${jsonLd.map((item) => `    <script type="application/ld+json">${JSON.stringify(item)}</script>`).join("\n")}\n  </head>`)
-    .replace(/<noscript>[\s\S]*?<\/noscript>/, `<noscript>${buildNoscript(route)}</noscript>`);
+    .replace('<div id="root"></div>', () => `<div id="root">${prerenderBody(route)}</div>`)
+    .replace(/<noscript>[\s\S]*?<\/noscript>/, () => `<noscript>${buildNoscript(route)}</noscript>`);
 }
 
 function setNoIndex(html) {
@@ -826,7 +896,8 @@ await writeFile(join(distPath, "index.html"), setMeta(indexHtml, homeRoute));
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes.filter((route) => !route.excludeFromSitemap).map((route) => `  <url>
-    <loc>${canonicalUrl(route)}</loc>
+    <loc>${canonicalUrl(route)}</loc>${routeLastmod(route) ? `
+    <lastmod>${routeLastmod(route)}</lastmod>` : ""}
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>`).join("\n")}
@@ -835,3 +906,37 @@ ${routes.filter((route) => !route.excludeFromSitemap).map((route) => `  <url>
 
 await writeFile(new URL("sitemap.xml", distDir), sitemap);
 await writeFile(new URL("../public/sitemap.xml", import.meta.url), sitemap);
+
+function llmsGeneratedBlock() {
+  const pageLine = (route) => `- [${route.title}](${canonicalUrl(route)}): ${route.description}`;
+  const corePaths = ["/", "/about", "/faq", "/organization", "/news", "/contact", "/resources", "/business", "/culture"];
+  const core = corePaths.map((path) => routes.find((route) => route.path === path)).filter(Boolean);
+  const newsRoutes = routes
+    .filter((route) => /^\/news\/\d+$/.test(route.path))
+    .map((route) => ({ route, article: newsArticleSchema(route) }))
+    .sort((a, b) => (b.article?.datePublished || "").localeCompare(a.article?.datePublished || ""));
+  const faq = faqItems.map((item) => `Question: ${item.q}\nAnswer: ${item.a}`).join("\n\n");
+  return [
+    "<!-- BEGIN GENERATED BY scripts/write-atya-routes.mjs: do not edit by hand -->",
+    "## Core pages",
+    "",
+    ...core.map(pageLine),
+    "",
+    "## News and activities",
+    "",
+    ...newsRoutes.map(({ route, article }) => `- [${route.title}](${canonicalUrl(route)}) (${article?.datePublished || ""}): ${route.description}`),
+    "",
+    `## FAQ (same text as ${canonicalUrl("/faq")}, updated ${faqUpdated})`,
+    "",
+    faq,
+    "<!-- END GENERATED -->",
+  ].join("\n");
+}
+
+const llmsSourceUrl = new URL("../public/llms.txt", import.meta.url);
+const llmsSource = await readFile(llmsSourceUrl, "utf8");
+const llmsPattern = /<!-- BEGIN GENERATED[^\n]*-->[\s\S]*?<!-- END GENERATED -->/;
+if (!llmsPattern.test(llmsSource)) throw new Error("public/llms.txt is missing the generated-block markers");
+const llms = llmsSource.replace(llmsPattern, () => llmsGeneratedBlock());
+await writeFile(llmsSourceUrl, llms);
+await writeFile(new URL("llms.txt", distDir), llms);

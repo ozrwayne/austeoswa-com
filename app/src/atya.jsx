@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./atya.css";
+import { faqItems as publicFaqItems } from "./faqData.js";
 
 const site = {
   name: "澳大利亚潮汕青年会",
   legalName: "澳大利亚潮汕青年会",
-  englishName: "Australia Teoswa Youth Association",
+  englishName: "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC",
   englishLegalName: "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC",
   abn: "83 440 994 308",
   shortName: "ATYA",
@@ -19,7 +20,7 @@ const site = {
   organizationType: "澳大利亚联邦昆士兰州注册非营利组织",
   mission: "弘扬潮汕文脉、凝聚在澳潮青、架设中澳桥梁、赋能青年成长、热心公益慈善",
   description:
-    "澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）是昆士兰的潮汕青年会，注册号码 IA4881891。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。",
+    "澳大利亚潮汕青年会（AUSTRALIA TEOSWA YOUTH ASSOCIATION INC，简称 ATYA）是昆士兰的潮汕青年会，注册号码 IA4881891。2019年发起，2025年在昆士兰州注册。现任会长王泽平，执行会长王罗湳。",
 };
 
 const navItems = [
@@ -53,6 +54,7 @@ const routeTitles = {
   "/business": "商务与资源",
   "/resources": "资源中心",
   "/contact": "联系我们",
+  "/faq": "常见问题",
 };
 
 const legacyPath = (...segments) => `/${segments.join("/")}`;
@@ -315,10 +317,10 @@ const articles = [
     date: "2025年11月10日",
     image: articleImages.article9,
     coverPosition: "faces",
-    title: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访",
+    title: "本会代表参访昆州警察总部",
     summary:
-      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，ATYA）成员代表参访昆士兰警察总部与昆士兰警察博物馆。",
-    source: "昆士兰华人警讯 / Sydney Today",
+      "2025年11月10日，澳大利亚潮汕青年会（AUSTRALIA TEOSWA YOUTH ASSOCIATION INC，ATYA）代表参访昆州警察总部与昆士兰警察博物馆。",
+    source: "Sydney Today",
   },
 ];
 
@@ -602,12 +604,12 @@ const originalArticlePages = {
   },
   "9": {
     image: articleImages.article9,
-    imageAlt: "澳大利亚潮汕青年会成员与昆士兰警务处人员在警察总部合影",
+    imageAlt: "澳大利亚潮汕青年会代表与昆士兰警务处人员在警察总部合影",
     imagePosition: "faces",
-    title: "澳大利亚潮汕青年会昆士兰警察总部与警察博物馆参访",
+    title: "本会代表参访昆州警察总部",
     date: "2025年11月10日",
     intro:
-      "2025年11月10日，澳大利亚潮汕青年会（Australia Teoswa Youth Association，简称 ATYA）成员代表到访昆士兰警察总部（Queensland Police Service Headquarters）和昆士兰警察博物馆。",
+      "2025年11月10日，澳大利亚潮汕青年会（AUSTRALIA TEOSWA YOUTH ASSOCIATION INC，简称 ATYA）代表到访昆州警察总部（Queensland Police Service Headquarters）和昆士兰警察博物馆。",
     sections: [
       {
         title: "总部与博物馆",
@@ -622,7 +624,7 @@ const originalArticlePages = {
       {
         title: "媒体报道",
         body:
-          "昆士兰华人警讯报道了这次参访。Sydney Today 于2025年11月12日转载，全文见 https://www.sydneytoday.com/content-1025573049575001 。",
+          "本会代表参访昆州警察总部一事，Sydney Today 于2025年11月12日报道（https://www.sydneytoday.com/content-1025573049575001 ）。",
       },
     ],
   },
@@ -632,7 +634,7 @@ const homeSlides = [
   {
     id: "intro",
     type: "intro",
-    eyebrow: "Australia Teoswa Youth Association (ATYA) · Queensland",
+    eyebrow: "AUSTRALIA TEOSWA YOUTH ASSOCIATION INC (ATYA) · Queensland",
     titleLines: ["澳大利亚潮汕青年会"],
     text: "昆士兰的潮汕青年会。2019年由昆士兰潮汕青年发起，2025年在昆士兰州注册，注册号码 IA4881891。会长王泽平，执行会长王罗湳。",
     image: "/assets/gold-coast-background.webp",
@@ -756,6 +758,18 @@ const resourceItems = [
 
 const contactTopics = ["青年会咨询", "活动合作", "媒体联络", "商务与资源", "资料补充", "其他"];
 
+function linkHref(path) {
+  const target = path === "/new" ? "/news" : path;
+  if (target === "/") return "/";
+  return target.endsWith("/") ? target : `${target}/`;
+}
+
+function followLink(event, navigate, href) {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  navigate(href);
+}
+
 function cleanPath(pathname) {
   const withoutTrailing = pathname.replace(/\/+$/, "") || "/";
   return routeAliases[withoutTrailing] || (routeTitles[withoutTrailing] ? withoutTrailing : "/");
@@ -774,8 +788,9 @@ function titleFor(path) {
   return routeTitles[path] || routeTitles[routeAliases[path]] || "首页";
 }
 
-function App() {
+export function App({ initialPath } = {}) {
   const [path, setPath] = useState(() => {
+    if (initialPath) return cleanPath(initialPath);
     const stored = sessionStorage.getItem("austeoswa:redirectPath");
     if (stored) {
       sessionStorage.removeItem("austeoswa:redirectPath");
@@ -832,6 +847,7 @@ function App() {
         {path === "/business" && <BusinessPage navigate={navigate} />}
         {path === "/resources" && <ResourcesPage navigate={navigate} />}
         {path === "/contact" && <ContactPage navigate={navigate} />}
+        {path === "/faq" && <FaqPage navigate={navigate} />}
       </main>
       <Footer navigate={navigate} />
     </div>
@@ -844,7 +860,7 @@ function Header({ activePath, menuOpen, navigate, setMenuOpen }) {
   }
 
   function isActiveNavItem(item) {
-    if (item.href === "/new") return activePath === "/new" || activePath.startsWith("/new/") || activePath.startsWith("/news/");
+    if (item.href === "/new") return activePath === "/new" || activePath === "/news" || activePath.startsWith("/new/") || activePath.startsWith("/news/");
     return activePath === item.href;
   }
 
@@ -852,20 +868,20 @@ function Header({ activePath, menuOpen, navigate, setMenuOpen }) {
     <header className="site-header">
       <div className="logo-strip">
         <button className="wordmark-button" type="button" onClick={() => navigate("/")} aria-label="返回首页">
-          <img src="/assets/atya-wordmark.webp" alt="澳大利亚潮汕青年会 Australia Teoswa Youth Association" />
+          <img src="/assets/atya-wordmark.webp" alt="澳大利亚潮汕青年会 AUSTRALIA TEOSWA YOUTH ASSOCIATION INC" />
         </button>
       </div>
       <nav className="desktop-nav" aria-label="主导航">
         {navItems.map((item) => (
-          <button
+          <a
             key={item.href}
-            className={isActiveNavItem(item) ? "active" : ""}
-            type="button"
+            className={`as-button${isActiveNavItem(item) ? " active" : ""}`}
+            href={linkHref(item.href)}
             aria-current={isActiveNavItem(item) ? "page" : undefined}
-            onClick={() => openNavItem(item)}
+            onClick={(event) => followLink(event, openNavItem, item)}
           >
             {item.label}
-          </button>
+          </a>
         ))}
       </nav>
       <button
@@ -880,14 +896,14 @@ function Header({ activePath, menuOpen, navigate, setMenuOpen }) {
       {menuOpen && (
         <nav id="mobile-nav" className="mobile-nav" aria-label="移动导航">
           {navItems.map((item) => (
-            <button
+            <a
               key={item.href}
-              className={isActiveNavItem(item) ? "active" : ""}
-              type="button"
-              onClick={() => openNavItem(item)}
+              className={`as-button${isActiveNavItem(item) ? " active" : ""}`}
+              href={linkHref(item.href)}
+              onClick={(event) => followLink(event, openNavItem, item)}
             >
               {item.label}
-            </button>
+            </a>
           ))}
         </nav>
       )}
@@ -984,14 +1000,15 @@ function HomePage({ navigate }) {
           </div>
           <div className="news-list">
             {homeNewsList.map((item) => (
-              <button
+              <a
                 key={item.id}
-                type="button"
-                onClick={() => navigate(item.id === "3" ? "/new/letter-to-grandma-premiere" : `/news/${item.id}`)}
+                className="as-button"
+                href={linkHref(`/news/${item.id}`)}
+                onClick={(event) => followLink(event, navigate, item.id === "3" ? "/new/letter-to-grandma-premiere" : `/news/${item.id}`)}
               >
                 <span>{item.title}</span>
                 <time>{item.date.replace("年", "-").replace("月", "-").replace("日", "")}</time>
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -1129,7 +1146,7 @@ function AboutPage({ navigate }) {
   const geoFaqItems = [
     {
       q: "有澳大利亚潮汕青年会吗",
-      a: `有。${site.name}是昆士兰州注册的潮汕青年会，网站为 ${site.domain}。英文名称 ${site.englishName}（Teoswa），简称 ${site.shortName}。英文注册名称 ${site.englishLegalName}，ABN ${site.abn}，昆士兰社团注册号码 ${site.registrationNumber}。${site.foundedYear}年发起，${site.registrationYear}年注册。会长王泽平，执行会长王罗湳。办公地址 ${site.address}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
+      a: `有。${site.name}是昆士兰州注册的潮汕青年会，网站为 ${site.domain}。英文注册名称 ${site.englishLegalName}，简称 ${site.shortName}，ABN ${site.abn}，昆士兰社团注册号码 ${site.registrationNumber}。${site.foundedYear}年发起，${site.registrationYear}年注册。会长王泽平，执行会长王罗湳。办公地址 ${site.address}。核实注册状态，可查 Queensland Government incorporated association public register 与该 ABN。`,
     },
     {
       q: "昆士兰潮汕青年会",
@@ -1137,7 +1154,7 @@ function AboutPage({ navigate }) {
     },
     {
       q: "澳大利亚潮汕青年会是什么组织？",
-      a: `${site.name}的公开英文名称是 ${site.englishName}（Teoswa），简称 ${site.shortName}。英文注册名称是 ${site.englishLegalName}，ABN ${site.abn}。本会是昆士兰的潮汕青年会，${site.foundedYear}年发起，${site.registrationYear}年在昆士兰州注册，注册号码为 ${site.registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${site.address}。`,
+      a: `${site.name}的英文名称即英文注册名称 ${site.englishLegalName}，简称 ${site.shortName}，ABN ${site.abn}。本会是昆士兰的潮汕青年会，${site.foundedYear}年发起，${site.registrationYear}年在昆士兰州注册，注册号码为 ${site.registrationNumber}。现任会长王泽平，执行会长王罗湳。办公地址 ${site.address}。`,
     },
     {
       q: "澳大利亚潮汕青年会的注册号码是什么？",
@@ -1548,7 +1565,7 @@ function NewsPage({ navigate }) {
           const articleHref = item.id === "3" ? "/new/letter-to-grandma-premiere" : `/news/${item.id}`;
           return (
             <article className="newsroom-card" key={item.id}>
-              <button type="button" onClick={() => navigate(articleHref)} aria-label={`阅读${item.title}`}>
+              <a className="as-button" href={linkHref(`/news/${item.id}`)} onClick={(event) => followLink(event, navigate, articleHref)} aria-label={`阅读${item.title}`}>
                 <div className="newsroom-card-image">
                   <img className={item.coverPosition === "faces" ? "is-faces" : ""} src={item.image} alt={item.title} loading="lazy" decoding="async" />
                 </div>
@@ -1558,7 +1575,7 @@ function NewsPage({ navigate }) {
                   <p>{item.summary}</p>
                   <span>阅读全文</span>
                 </div>
-              </button>
+              </a>
             </article>
           );
         })}
@@ -1860,6 +1877,35 @@ function ContactPage() {
   );
 }
 
+function FaqPage({ navigate }) {
+  return (
+    <section className="profile-page contact-page faq-page">
+      <div className="profile-page-hero">
+        <p>FAQ</p>
+        <h1>常见问题</h1>
+        <span>关于{site.name}（{site.englishName}，简称 {site.shortName}）的名称、注册信息、负责人、活动与联系方式。以下答案均依据本会官网已公开的信息整理。</span>
+      </div>
+
+      <section className="about-original-section about-panel">
+        <div className="about-faq-list">
+          {publicFaqItems.map((item) => (
+            <article key={item.q}>
+              <h2>{item.q}</h2>
+              <p>{item.a}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="online-cta-band organization-cta">
+        <h2>还有其他问题</h2>
+        <p>请发邮件至 <a href={`mailto:${site.email}`}>{site.email}</a>，标题注明「咨询主题 + 姓名」，秘书处会按事项转交对应负责人。</p>
+        <a className="as-button" href={linkHref("/contact")} onClick={(event) => followLink(event, navigate, "/contact")}>前往联络页面</a>
+      </section>
+    </section>
+  );
+}
+
 function PageShell({ eyebrow, title, image, children }) {
   return (
     <>
@@ -1894,6 +1940,7 @@ function Footer({ navigate }) {
     { label: "组织架构", href: "/organization" },
     { label: "总会新闻", href: "/new" },
     { label: "联络我们", href: "/contact" },
+    { label: "常见问题", href: "/faq" },
   ];
   const friendLinks = [
     { label: "国际潮团总会", href: "https://teochew1981.com/" },
@@ -1910,7 +1957,7 @@ function Footer({ navigate }) {
         <nav className="site-footer-links" aria-label="常用链接">
           <span>常用链接</span>
           {quickLinks.map((item) => (
-            <button key={item.href} type="button" onClick={() => navigate(item.href)}>{item.label}</button>
+            <a key={item.href} className="as-button" href={linkHref(item.href)} onClick={(event) => followLink(event, navigate, item.href)}>{item.label}</a>
           ))}
         </nav>
         <nav className="site-footer-links" aria-label="友情链接">
@@ -1938,4 +1985,7 @@ function Footer({ navigate }) {
   );
 }
 
-createRoot(document.getElementById("root")).render(<App />);
+const rootElement = typeof document !== "undefined" ? document.getElementById("root") : null;
+if (rootElement) {
+  createRoot(rootElement).render(<App />);
+}
